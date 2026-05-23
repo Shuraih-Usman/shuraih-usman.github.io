@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>All Projects | Shuraihu Usman — Full-Stack Developer</title>
+  <meta name="description" content="Browse all projects by Shuraihu Usman — full-stack web developer specialising in React, Node.js, Laravel and Django." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Shared styles -->
+  <link rel="stylesheet" href="style.css" />
+  <!-- Projects page styles -->
+  <link rel="stylesheet" href="projects.css" />
+</head>
+<body>
+
+  <!-- ═══ CUSTOM CURSOR ═══ -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursorFollower"></div>
+
+  <!-- ═══ NAVBAR ═══ -->
+  <nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
+    <a href="index.html" class="nav-logo" aria-label="Home">&lt;SU/&gt;</a>
+    <ul class="nav-links" role="list">
+      <li><a href="index.html#home"       class="nav-link" data-nav="home">Home</a></li>
+      <li><a href="index.html#about"      class="nav-link" data-nav="about">About</a></li>
+      <li><a href="index.html#experience" class="nav-link" data-nav="experience">Experience</a></li>
+      <li><a href="projects.html"         class="nav-link active" data-nav="projects">Projects</a></li>
+      <li><a href="index.html#contact"    class="nav-link" data-nav="contact">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="index.html#contact" class="nav-cta" id="navCta">Hire me</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+    <ul>
+      <li><a href="index.html#home"       data-close class="mob-link">Home</a></li>
+      <li><a href="index.html#about"      data-close class="mob-link">About</a></li>
+      <li><a href="index.html#experience" data-close class="mob-link">Experience</a></li>
+      <li><a href="projects.html"         data-close class="mob-link active">Projects</a></li>
+      <li><a href="index.html#contact"    data-close class="mob-link">Contact</a></li>
+    </ul>
+  </div>
+
+  <main>
+
+    <!-- ═══ PAGE HEADER ═══ -->
+    <section class="ap-hero" id="apHero">
+      <div class="ap-hero-bg"></div>
+      <div class="container">
+        <a href="index.html" class="ap-back" id="apBack">
+          <i class="fa-solid fa-arrow-left"></i> Back to Portfolio
+        </a>
+        <span class="sec-label" style="margin-top:1rem; display:block;">// All Projects</span>
+        <h1 class="ap-title">
+          <span class="apt-top">Things I've</span>
+          <span class="apt-main">built<span class="apt-dot">.</span></span>
+        </h1>
+        <p class="ap-desc">
+          A showcase of my work &mdash; from e-commerce platforms and SaaS dashboards to healthcare systems and mobile apps.
+          Every project is crafted with performance, accessibility, and clean code in mind.
+        </p>
+        <div class="ap-stats">
+          <div class="aps-item">
+            <span class="aps-n" data-target="12">0</span>
+            <span class="aps-l">Projects</span>
+          </div>
+          <div class="aps-item">
+            <span class="aps-n" data-target="9">0</span>
+            <span class="aps-l">Years Exp.</span>
+          </div>
+          <div class="aps-item">
+            <span class="aps-n" data-target="15">0</span>
+            <span class="aps-l">Technologies</span>
+          </div>
+          <div class="aps-item">
+            <span class="aps-n" data-target="6">0</span>
+            <span class="aps-l">Companies</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ FILTERS ═══ -->
+    <div class="ap-filters-wrap" id="apFiltersWrap">
+      <div class="container">
+        <div class="ap-filters" id="apFilters" role="group" aria-label="Project filters">
+          <button class="apf-btn active" data-filter="all"       id="filterAll">All <span class="apf-count" id="countAll">12</span></button>
+          <button class="apf-btn" data-filter="fullstack"        id="filterFullstack">Full-Stack <span class="apf-count" id="countFullstack">6</span></button>
+          <button class="apf-btn" data-filter="frontend"         id="filterFrontend">Frontend <span class="apf-count" id="countFrontend">3</span></button>
+          <button class="apf-btn" data-filter="backend"          id="filterBackend">Backend <span class="apf-count" id="countBackend">1</span></button>
+          <button class="apf-btn" data-filter="mobile"           id="filterMobile">Mobile <span class="apf-count" id="countMobile">2</span></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ PROJECT GRID ═══ -->
+    <section class="ap-grid-sec">
+      <div class="container">
+
+        <div class="ap-grid" id="apGrid" role="list">
+          <!-- Cards injected by JS -->
+        </div>
+
+        <!-- Sentinel for IntersectionObserver -->
+        <div id="apSentinel" class="ap-sentinel" aria-hidden="true"></div>
+
+        <!-- Loading spinner -->
+        <div class="ap-spinner" id="apSpinner" hidden aria-label="Loading more projects" role="status">
+          <div class="sp-ring">
+            <div class="sp-inner"></div>
+          </div>
+          <span>Loading more projects&hellip;</span>
+        </div>
+
+        <!-- All loaded -->
+        <div class="ap-end-msg" id="apEndMsg" hidden>
+          <span class="aem-line"></span>
+          <span class="aem-text"><i class="fa-solid fa-check-circle"></i> You&rsquo;ve seen them all!</span>
+          <span class="aem-line"></span>
+        </div>
+
+        <!-- No results -->
+        <div class="ap-no-results" id="apNoResults" hidden>
+          <i class="fa-solid fa-folder-open"></i>
+          <p>No projects in this category yet.</p>
+          <button onclick="document.querySelector('[data-filter=all]').click()">View all projects</button>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══ PROJECT DETAIL DRAWER ═══ -->
+  <div class="ap-drawer" id="apDrawer" role="dialog" aria-modal="true" aria-label="Project details">
+    <div class="apd-backdrop" id="apdBackdrop"></div>
+    <aside class="apd-panel" id="apdPanel">
+      <button class="apd-close" id="apdClose" aria-label="Close details">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="apd-body" id="apdBody"><!-- injected by JS --></div>
+    </aside>
+  </div>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <a href="index.html" class="footer-logo">&lt;SU/&gt;</a>
+      <p class="footer-copy">&copy; <span id="footerYear"></span> Shuraihu Usman. Crafted with <i class="fa-solid fa-heart" style="color:#f87171"></i> and lots of <i class="fa-solid fa-mug-hot" style="color:#fbbf24"></i></p>
+      <a href="#apHero" class="footer-top" id="footerBack" aria-label="Back to top">
+        <i class="fa-solid fa-chevron-up"></i>
+      </a>
+    </div>
+  </footer>
+
+  <script src="projects.js"></script>
+</body>
+</html>

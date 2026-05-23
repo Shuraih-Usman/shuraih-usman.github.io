@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shuraihu Usman | Full-Stack Developer</title>
+  <meta name="description"
+    content="Shuraihu Usman — Full-Stack Developer crafting beautiful, scalable web applications with React, Node.js, Laravel and more." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Space+Mono:wght@400;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- Custom cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursorFollower"></div>
+
+  <!-- Loader -->
+  <div class="loader" id="loader">
+    <div class="loader-inner">
+      <div class="loader-logo">&lt;SU/&gt;</div>
+      <div class="loader-bar">
+        <div class="loader-fill" id="loaderFill"></div>
+      </div>
+      <p class="loader-text" id="loaderText">Initializing...</p>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <a href="#home" class="nav-logo">&lt;SU/&gt;</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home" class="nav-link" data-nav="home">Home</a></li>
+      <li><a href="#about" class="nav-link" data-nav="about">About</a></li>
+      <li><a href="#experience" class="nav-link" data-nav="experience">Experience</a></li>
+      <li><a href="#projects" class="nav-link" data-nav="projects">Projects</a></li>
+      <li><a href="#contact" class="nav-link" data-nav="contact">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#home" class="mob-link" data-close>Home</a>
+    <a href="#about" class="mob-link" data-close>About</a>
+    <a href="#experience" class="mob-link" data-close>Experience</a>
+    <a href="#projects" class="mob-link" data-close>Projects</a>
+    <a href="#contact" class="mob-link" data-close>Contact</a>
+  </div>
+
+  <main>
+
+    <!-- ═══════════ HERO ═══════════ -->
+    <section class="hero" id="home">
+      <canvas class="hero-canvas" id="heroCanvas"></canvas>
+      <div class="container hero-inner">
+
+        <!-- Top row: avatar + quote -->
+        <div class="hero-head" id="heroCard">
+          <div class="hero-avatar-block">
+            <div class="avatar-frame" id="heroAvatarFrame" role="button" tabindex="0" aria-label="View photo">
+              <img src="avatar.jpg" alt="Shuraihu Usman" class="hero-avatar" />
+              <div class="avatar-overlay">
+                <i class="fa-solid fa-expand"></i>
+              </div>
+            </div>
+            <div class="hero-status">
+              <span class="status-pulse"></span>
+              <span>Available for work</span>
+            </div>
+          </div>
+          <blockquote class="hero-quote">
+            "Building clean, scalable web applications with passion and precision — one commit at a time."
+          </blockquote>
+        </div>
+
+        <!-- Role pill badge -->
+        <div class="hero-role-pill" id="heroRolePill">
+          <span class="hrp-dot"></span>
+          Full-Stack Web Developer
+        </div>
+
+        <!-- Editorial headline -->
+        <h1 class="hero-title">
+          <span class="ht-top">Turning ideas into</span>
+          <span class="ht-main">web reality<span class="ht-dot">.</span></span>
+          <span class="ht-sub">Frontend &middot; Backend &middot; Full-Stack</span>
+        </h1>
+
+        <!-- Typewriter role line -->
+        <p class="hero-role">
+          Currently building&nbsp;
+          <span class="tw-wrap">
+            <span class="typewriter" id="typewriter"></span><span class="tw-cursor">|</span>
+          </span>
+        </p>
+
+        <!-- Bio -->
+        <p class="hero-bio">
+          A self-taught full-stack developer with 3+ years in the industry, building meaningful and delightfully digital
+          products that create an equilibrium between user needs and business goals.
+        </p>
+
+        <!-- CTAs -->
+        <div class="hero-actions">
+          <a href="#projects" class="btn-arrow" id="heroBtnPrimary">
+            View my work <i class="fa-solid fa-arrow-right"></i>
+          </a>
+          <a href="#contact" class="btn-ghost" id="heroBtnSecondary">Let's talk</a>
+        </div>
+
+        <!-- Stats -->
+        <div class="hero-stats">
+          <div class="hstat">
+            <span class="hstat-n" data-target="9">0</span><span class="hstat-plus">+</span>
+            <span class="hstat-l">Years Exp.</span>
+          </div>
+          <div class="hstat-sep"></div>
+          <div class="hstat">
+            <span class="hstat-n" data-target="100">0</span><span class="hstat-plus">+</span>
+            <span class="hstat-l">Projects</span>
+          </div>
+          <div class="hstat-sep"></div>
+          <div class="hstat">
+            <span class="hstat-n" data-target="100">0</span><span class="hstat-plus">+</span>
+            <span class="hstat-l">Clients</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══════════ ABOUT ═══════════ -->
+    <section class="about-sec" id="about">
+      <div class="container">
+        <div class="reveal">
+          <span class="sec-label">// 01 &mdash; About me</span>
+          <h2 class="sec-title">Full-Stack Developer <span class="teal">crafting</span> digital experiences</h2>
+          <p class="sec-body">
+            I bridge the gap between design and engineering — from pixel-perfect UIs to scalable backend systems. I
+            bring ideas to life with clean code and a product-minded approach, constantly exploring new technologies and
+            pushing the boundaries of what's possible on the web.
+          </p>
+          <p class="sec-body">
+            Currently open to full-time roles, contract work, and exciting collaborations across <span
+              class="teal">React</span>, <span class="teal">Node.js</span>, <span class="teal">Laravel</span>, and <span
+              class="teal">Python Django</span>.
+          </p>
+          <a href="#" class="btn-arrow" id="downloadCv">
+            Download CV <i class="fa-solid fa-download"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════ EXPERIENCE ═══════════ -->
+    <section class="exp-sec" id="experience">
+      <div class="container">
+        <div class="reveal">
+          <span class="sec-label">// 02 &mdash; Experience</span>
+          <h2 class="sec-title">Where I've <span class="teal">worked</span> &amp; <span class="teal">studied</span></h2>
+        </div>
+
+        <div class="exp-grid">
+
+          <!-- ── Work column ── -->
+          <div class="exp-col reveal">
+            <div class="exp-col-head">
+              <i class="fa-solid fa-briefcase"></i>
+              <span>Work Experience</span>
+            </div>
+            <div class="timeline">
+
+              <div class="tl-item" id="expBluepage">
+                <div class="tl-dot tl-active"></div>
+                <div class="tl-body">
+                  <span class="tl-period">2026 &mdash; Present</span>
+                  <h4 class="tl-role">Full Stack Web Developer</h4>
+                  <p class="tl-company">Exhwhyzee Smart Solution LTD</p>
+                  <span class="tl-badge">Staff</span>
+                </div>
+              </div>
+
+              <div class="tl-item" id="expBluepage">
+                <div class="tl-dot tl-active"></div>
+                <div class="tl-body">
+                  <span class="tl-period">2025 &mdash; Present</span>
+                  <h4 class="tl-role">Full Stack Web Developer</h4>
+                  <p class="tl-company">BluePage Software LTD</p>
+                  <span class="tl-badge">Contract Staff</span>
+                </div>
+              </div>
+
+              <div class="tl-item" id="expMarus">
+                <div class="tl-dot tl-active"></div>
+                <div class="tl-body">
+                  <span class="tl-period">2026 &mdash; Present</span>
+                  <h4 class="tl-role">Full Stack Web Developer</h4>
+                  <p class="tl-company">RUSMA DIGITAL LINKS LTD</p>
+                  <span class="tl-badge">CEO &amp; Co-Founder</span>
+                </div>
+              </div>
+
+              <div class="tl-item" id="expKese">
+                <div class="tl-dot"></div>
+                <div class="tl-body">
+                  <span class="tl-period">2023 &mdash; 2024</span>
+                  <h4 class="tl-role">Full Stack Web Developer</h4>
+                  <p class="tl-company">KESE Academy</p>
+                  <span class="tl-badge">Senior Developer</span>
+                </div>
+              </div>
+
+              <div class="tl-item" id="expStackplaza">
+                <div class="tl-dot"></div>
+                <div class="tl-body">
+                  <span class="tl-period">2023 &mdash; 2023</span>
+                  <h4 class="tl-role">Graphic Designer</h4>
+                  <p class="tl-company">Stackplaza</p>
+                  <span class="tl-badge">Asst. Senior Designer</span>
+                </div>
+              </div>
+
+              <div class="tl-item" id="expPlatinum">
+                <div class="tl-dot"></div>
+                <div class="tl-body">
+                  <span class="tl-period">2025 &mdash; 2026</span>
+                  <h4 class="tl-role">IT Specialist</h4>
+                  <p class="tl-company">Keffi Development Center For Drug Abuse, Rehabilitation and Counseling</p>
+                  <span class="tl-badge">Full Employee</span>
+                </div>
+              </div>
+
+              <div class="tl-item" id="expPlatinum">
+                <div class="tl-dot"></div>
+                <div class="tl-body">
+                  <span class="tl-period">2022 &mdash; 2024</span>
+                  <h4 class="tl-role">IT Specialist</h4>
+                  <p class="tl-company">Platinum Radio 91.1 FM</p>
+                  <span class="tl-badge">Full Employee</span>
+                </div>
+              </div>
+
+              <div class="tl-item" id="expVikrah">
+                <div class="tl-dot"></div>
+                <div class="tl-body">
+                  <span class="tl-period">2021 &mdash; 2023</span>
+                  <h4 class="tl-role">Video Editor</h4>
+                  <p class="tl-company">Vikrah Multimedia</p>
+                  <span class="tl-badge">Editing Team</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- ── Education column ── -->
+          <div class="exp-col reveal">
+            <div class="exp-col-head">
+              <i class="fa-solid fa-graduation-cap"></i>
+              <span>Education</span>
+            </div>
+            <div class="timeline">
+
+              <div class="tl-item" id="eduNsuk">
+                <div class="tl-dot"></div>
+                <div class="tl-body">
+                  <span class="tl-period">2019 &mdash; 2024</span>
+                  <h4 class="tl-role">B.Sc Computer Science</h4>
+                  <p class="tl-company">Nasarawa State University Keffi</p>
+                  <span class="tl-badge">NSUK &bull; Degree</span>
+                </div>
+              </div>
+
+              <div class="tl-item" id="eduFcc">
+                <div class="tl-dot"></div>
+                <div class="tl-body">
+                  <span class="tl-period">2019 &mdash; 2023</span>
+                  <h4 class="tl-role">Responsive Web Design</h4>
+                  <p class="tl-company">freeCodeCamp.org</p>
+                  <span class="tl-badge">Certification</span>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Stats card -->
+            <div class="exp-summary reveal">
+              <div class="exp-stat">
+                <span class="exp-stat-n">9+</span>
+                <span class="exp-stat-l">Years in Tech</span>
+              </div>
+              <div class="exp-stat">
+                <span class="exp-stat-n">6</span>
+                <span class="exp-stat-l">Companies</span>
+              </div>
+              <div class="exp-stat">
+                <span class="exp-stat-n">2</span>
+                <span class="exp-stat-l">Degrees &amp; Certs</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════ SKILLS ═══════════ -->
+    <section class="skills-sec" id="skills">
+      <div class="container">
+        <div class="reveal">
+          <span class="sec-label">// 03 &mdash; Tech Stack</span>
+          <p class="skills-lead">
+            I'm currently looking to join a <span class="teal">cross-functional</span> team that values impactful work
+            at all levels of the stack.
+          </p>
+        </div>
+        <div class="skills-grid reveal">
+          <div class="sicon" id="siHtml">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="HTML5"
+              loading="lazy" />
+            <span>HTML5</span>
+          </div>
+          <div class="sicon" id="siCss">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" alt="CSS3"
+              loading="lazy" />
+            <span>CSS3</span>
+          </div>
+          <div class="sicon" id="siTailwind">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg"
+              alt="Tailwind CSS" loading="lazy" />
+            <span>Tailwind</span>
+          </div>
+          <div class="sicon" id="siJs">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg"
+              alt="JavaScript" loading="lazy" />
+            <span>JavaScript</span>
+          </div>
+          <div class="sicon" id="siReact">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" alt="React.js"
+              loading="lazy" />
+            <span>React.js</span>
+          </div>
+          <div class="sicon" id="siNode">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg"
+              alt="Node.js" loading="lazy" />
+            <span>Node.js</span>
+          </div>
+          <div class="sicon" id="siPhp">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg" alt="PHP"
+              loading="lazy" />
+            <span>PHP</span>
+          </div>
+          <div class="sicon" id="siLaravel">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg"
+              alt="Laravel" loading="lazy" />
+            <span>Laravel</span>
+          </div>
+          <div class="sicon" id="siPython">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python"
+              loading="lazy" />
+            <span>Python</span>
+          </div>
+          <div class="sicon" id="siDjango">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/django/django-plain.svg" alt="Django"
+              loading="lazy" />
+            <span>Django</span>
+          </div>
+          <div class="sicon" id="siMysql">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" alt="MySQL"
+              loading="lazy" />
+            <span>MySQL</span>
+          </div>
+          <div class="sicon" id="siPostgres">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg"
+              alt="SQL" loading="lazy" />
+            <span>SQL</span>
+          </div>
+          <div class="sicon" id="siGit">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" alt="Git"
+              loading="lazy" />
+            <span>Git</span>
+          </div>
+          <div class="sicon" id="siNpm">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/npm/npm-original-wordmark.svg" alt="NPM"
+              loading="lazy" />
+            <span>NPM</span>
+          </div>
+          <div class="sicon" id="siApi">
+            <i class="fa-solid fa-plug"></i>
+            <span>REST API</span>
+          </div>
+          <div class="sicon" id="siLinux">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg" alt="Linux"
+              loading="lazy" />
+            <span>Linux</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════ ORB DIVIDER ═══════════ -->
+    <div class="orb-section" id="orbSection">
+      <div class="orb-glow"></div>
+      <div class="orb-rings">
+        <div class="orb-ring orb-ring-1"></div>
+        <div class="orb-ring orb-ring-2"></div>
+        <div class="orb-ring orb-ring-3"></div>
+      </div>
+      <div class="orb-center">
+        <span class="orb-logo">&lt;SU/&gt;</span>
+      </div>
+      <p class="orb-label">Shuraihu Usman &mdash; Full-Stack Developer</p>
+    </div>
+
+    <!-- ═══════════ PROJECTS ═══════════ -->
+    <section class="projects-sec" id="projects">
+      <div class="container">
+        <div class="proj-sec-header reveal">
+          <span class="sec-label">// 04 &mdash; Featured Work</span>
+          <a href="projects.html" class="proj-view-all" id="viewAllProjects">
+            View all projects <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <!-- Project 1 -->
+        <article class="proj-item reveal" id="proj1">
+          <div class="proj-info">
+            <span class="proj-num">01</span>
+            <h3 class="proj-title">ShopNest E-Commerce</h3>
+            <p class="proj-desc">Full-featured e-commerce platform with real-time inventory management, Stripe payment
+              integration, and a powerful admin dashboard. Built for scale with a clean REST API backend.</p>
+            <div class="proj-tags">
+              <span>React</span><span>Node.js</span><span>MongoDB</span><span>Stripe</span>
+            </div>
+            <div class="proj-links">
+              <a href="#" class="plink" id="proj1Live"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo</a>
+              <a href="#" class="plink plink-ghost" id="proj1Code"><i class="fa-brands fa-github"></i> Source</a>
+              <button class="plink plink-detail" id="proj1Detail" data-proj="proj1"><i class="fa-solid fa-eye"></i> Details</button>
+            </div>
+          </div>
+          <div class="proj-visual">
+            <div class="proj-img-wrap">
+              <img src="images/proj-ecommerce.jpg" alt="ShopNest E-Commerce" class="proj-img" loading="lazy" />
+              <div class="proj-img-overlay">
+                <span class="pcard-badge pcard-cat-badge" style="position:relative;top:auto;left:auto;">Full-Stack</span>
+                <span class="pcard-badge pcard-year-badge" style="position:relative;top:auto;left:auto;">2024</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 2 (reversed) -->
+        <article class="proj-item proj-reverse reveal" id="proj2">
+          <div class="proj-info">
+            <span class="proj-num">02</span>
+            <h3 class="proj-title">Analytix SaaS Dashboard</h3>
+            <p class="proj-desc">Real-time analytics platform with interactive charts, team collaboration tools, and
+              customizable reports. Helping 500+ teams track and improve product performance at a glance.</p>
+            <div class="proj-tags">
+              <span>Next.js</span><span>TypeScript</span><span>PostgreSQL</span><span>Chart.js</span>
+            </div>
+            <div class="proj-links">
+              <a href="#" class="plink" id="proj2Live"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo</a>
+              <a href="#" class="plink plink-ghost" id="proj2Code"><i class="fa-brands fa-github"></i> Source</a>
+              <button class="plink plink-detail" id="proj2Detail" data-proj="proj2"><i class="fa-solid fa-eye"></i> Details</button>
+            </div>
+          </div>
+          <div class="proj-visual">
+            <div class="proj-img-wrap">
+              <img src="images/proj-analytics.jpg" alt="Analytix SaaS Dashboard" class="proj-img" loading="lazy" />
+              <div class="proj-img-overlay">
+                <span class="pcard-badge pcard-cat-badge" style="position:relative;top:auto;left:auto;">Full-Stack</span>
+                <span class="pcard-badge pcard-year-badge" style="position:relative;top:auto;left:auto;">2023</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 3 -->
+        <article class="proj-item reveal" id="proj3">
+          <div class="proj-info">
+            <span class="proj-num">03</span>
+            <h3 class="proj-title">TaskFlow — Laravel App</h3>
+            <p class="proj-desc">A full-featured project management tool built with PHP Laravel and React. Features
+              drag-and-drop Kanban boards, real-time notifications, role-based access control, and team workspaces.</p>
+            <div class="proj-tags">
+              <span>Laravel</span><span>React</span><span>MySQL</span><span>Redis</span>
+            </div>
+            <div class="proj-links">
+              <a href="#" class="plink" id="proj3Live"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo</a>
+              <a href="#" class="plink plink-ghost" id="proj3Code"><i class="fa-brands fa-github"></i> Source</a>
+              <button class="plink plink-detail" id="proj3Detail" data-proj="proj3"><i class="fa-solid fa-eye"></i> Details</button>
+            </div>
+          </div>
+          <div class="proj-visual">
+            <div class="proj-img-wrap">
+              <img src="images/proj-kanban.jpg" alt="TaskFlow Laravel App" class="proj-img" loading="lazy" />
+              <div class="proj-img-overlay">
+                <span class="pcard-badge pcard-cat-badge" style="position:relative;top:auto;left:auto;">Full-Stack</span>
+                <span class="pcard-badge pcard-year-badge" style="position:relative;top:auto;left:auto;">2023</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ═══════════ CONTACT ═══════════ -->
+    <section class="contact-sec" id="contact">
+      <div class="container">
+
+        <span class="sec-label reveal">// 05 &mdash; Contact</span>
+
+        <div class="contact-grid reveal">
+
+          <!-- Left: editorial headline -->
+          <div class="contact-lhs">
+            <h2 class="contact-headline">
+              <span class="ch-top">Have a project in mind?</span>
+              <span class="ch-main">Let’s <span class="ch-accent">talk</span><span class="ch-dot">.</span></span>
+            </h2>
+            <p class="contact-desc">
+              Open to freelance, contract &amp; full-time roles. I’m a fast communicator — usually reply within 24 hours.
+            </p>
+
+            <a href="mailto:shuraihusman@gmail.com" class="contact-email-big" id="contactEmailBig">
+              <i class="fa-solid fa-envelope"></i>
+              shuraihusman@gmail.com
+            </a>
+
+            <div class="social-row">
+              <a href="https://github.com" class="soc-link" id="socialGithub" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+              <a href="https://linkedin.com" class="soc-link" id="socialLinkedin" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+              <a href="https://twitter.com" class="soc-link" id="socialTwitter" target="_blank" rel="noopener" aria-label="Twitter/X"><i class="fa-brands fa-x-twitter"></i></a>
+              <a href="https://wa.me/" class="soc-link" id="socialWhatsapp" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+          </div>
+
+          <!-- Right: CTA card -->
+          <div class="contact-rhs">
+            <div class="contact-cta-card" id="contactCtaCard">
+              <div class="ccc-glow"></div>
+              <div class="ccc-icon">
+                <i class="fa-solid fa-paper-plane"></i>
+              </div>
+              <h3 class="ccc-title">Drop me a line</h3>
+              <p class="ccc-body">Fill in the form and I’ll get back to you as soon as possible.</p>
+              <ul class="ccc-checks">
+                <li><i class="fa-solid fa-circle-check"></i> Fast response</li>
+                <li><i class="fa-solid fa-circle-check"></i> NDA friendly</li>
+                <li><i class="fa-solid fa-circle-check"></i> Remote ready</li>
+              </ul>
+              <button class="ccc-btn" id="contactOpenBtn">
+                <span>Open contact form</span>
+                <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══ CONTACT DRAWER ═══ -->
+  <div class="contact-drawer" id="contactDrawer" role="dialog" aria-modal="true" aria-label="Contact form">
+    <div class="cdr-backdrop" id="cdrBackdrop"></div>
+    <aside class="cdr-panel" id="cdrPanel">
+      <button class="cdr-close" id="cdrClose" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+      <div class="cdr-body">
+
+        <!-- Header -->
+        <div class="cdr-header">
+          <span class="cdr-label">Let’s Connect</span>
+          <h3 class="cdr-title">Send me a <span class="teal">message</span></h3>
+          <p class="cdr-subtitle">I’ll get back to you within 24 hours.</p>
+        </div>
+
+        <!-- Quick contact info -->
+        <div class="cdr-info">
+          <a href="mailto:shuraihusman@gmail.com" class="cdr-info-item">
+            <span class="cdr-info-icon"><i class="fa-solid fa-envelope"></i></span>
+            <span>shuraihusman@gmail.com</span>
+          </a>
+          <div class="cdr-info-item">
+            <span class="cdr-info-icon"><i class="fa-solid fa-location-dot"></i></span>
+            <span>Nigeria (Remote / On-site)</span>
+          </div>
+          <div class="cdr-info-item">
+            <span class="cdr-info-icon"><i class="fa-solid fa-clock"></i></span>
+            <span>Available &middot; WAT (UTC+1)</span>
+          </div>
+        </div>
+
+        <div class="cdr-divider"></div>
+
+        <!-- Contact Form -->
+        <form class="cdr-form" id="contactForm" novalidate>
+
+          <div class="cdr-row">
+            <div class="cdr-group">
+              <label class="cdr-lbl" for="cfName">Your Name <span>*</span></label>
+              <input class="cdr-input" type="text" id="cfName" name="name" placeholder="John Doe" required autocomplete="name" />
+            </div>
+            <div class="cdr-group">
+              <label class="cdr-lbl" for="cfEmail">Your Email <span>*</span></label>
+              <input class="cdr-input" type="email" id="cfEmail" name="email" placeholder="john@example.com" required autocomplete="email" />
+            </div>
+          </div>
+
+          <div class="cdr-group">
+            <label class="cdr-lbl" for="cfSubject">Subject <span>*</span></label>
+            <input class="cdr-input" type="text" id="cfSubject" name="subject" placeholder="Project idea, collaboration, job offer..." required />
+          </div>
+
+          <div class="cdr-group">
+            <label class="cdr-lbl" for="cfMessage">Message <span>*</span></label>
+            <textarea class="cdr-input cdr-textarea" id="cfMessage" name="message" rows="5" placeholder="Tell me about your project, timeline, and budget..." required></textarea>
+          </div>
+
+          <button type="submit" class="cdr-submit" id="cdrSubmit">
+            <i class="fa-solid fa-paper-plane"></i>
+            <span id="cdrBtnText">Send Message</span>
+          </button>
+
+          <div class="cdr-status" id="cdrStatus" role="alert" aria-live="polite"></div>
+        </form>
+
+      </div>
+    </aside>
+  </div>
+
+  <!-- ═══ IMAGE LIGHTBOX ═══ -->
+  <div class="img-lightbox" id="imgLightbox" role="dialog" aria-modal="true" aria-label="Photo preview">
+    <div class="lb-backdrop" id="lbBackdrop"></div>
+    <button class="lb-close" id="lbClose" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+    <img class="lb-img" id="lbImg" src="" alt="Shuraihu Usman — Full-Stack Developer" />
+    <p class="lb-caption">Shuraihu Usman &mdash; Full-Stack Developer</p>
+  </div>
+
+  <!-- ═══ PROJECT DETAIL DRAWER ═══ -->
+  <div class="proj-drawer" id="projDrawer" role="dialog" aria-modal="true" aria-label="Project details">
+    <div class="pd-backdrop" id="pdBackdrop"></div>
+    <aside class="pd-panel" id="pdPanel">
+      <button class="pd-close" id="pdClose" aria-label="Close details"><i class="fa-solid fa-xmark"></i></button>
+      <div class="pd-body" id="pdBody"><!-- injected by JS --></div>
+    </aside>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <a href="#home" class="footer-logo">&lt;SU/&gt;</a>
+      <p class="footer-copy">&copy; <span id="footerYear"></span> Shuraihu Usman. Crafted with <i
+          class="fa-solid fa-heart" style="color:#f87171"></i> and lots of <i class="fa-solid fa-mug-hot"
+          style="color:#fbbf24"></i></p>
+      <a href="#home" class="footer-top" id="footerBack" aria-label="Back to top">
+        <i class="fa-solid fa-chevron-up"></i>
+      </a>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+
+</html>
