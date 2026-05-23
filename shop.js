@@ -245,11 +245,11 @@ function buildCard(p, delay) {
         <div class="shcard-ctas">
           <a href="${p.buyUrl}" class="shcard-btn-buy" target="_blank" rel="noopener"
              onclick="event.stopPropagation()">
-            <i class="fa-solid fa-cart-shopping"></i> Buy $${p.price}
+            <i class="fa-solid fa-cart-shopping"></i> $${p.price}
           </a>
           <a href="${p.demoUrl}" class="shcard-btn-demo" target="_blank" rel="noopener"
              onclick="event.stopPropagation()">
-            <i class="fa-solid fa-eye"></i> Demo
+            <i class="fa-solid fa-eye"></i> 
           </a>
         </div>
       </div>
