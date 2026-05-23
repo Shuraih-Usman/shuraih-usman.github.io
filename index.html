@@ -15,6 +15,7 @@
   <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="shop.css" />
 </head>
 
 <body>
@@ -42,6 +43,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
       <li><a href="#about" class="nav-link" data-nav="about">About</a></li>
       <li><a href="#experience" class="nav-link" data-nav="experience">Experience</a></li>
       <li><a href="#projects" class="nav-link" data-nav="projects">Projects</a></li>
+      <li><a href="shop.html" class="nav-link" data-nav="shop">Products</a></li>
       <li><a href="#contact" class="nav-link" data-nav="contact">Contact</a></li>
     </ul>
     <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
@@ -517,11 +519,101 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
       </div>
     </section>
 
+    <!-- ═══════════ PRODUCTS ═══════════ -->
+    <section class="idx-products-sec" id="products">
+      <div class="container">
+
+        <div class="proj-sec-header reveal">
+          <span class="sec-label">// 05 &mdash; Digital Products</span>
+          <a href="shop.html" class="proj-view-all" id="viewAllProducts">
+            View all products <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <!-- Product list -->
+        <div class="ip-list">
+
+          <!-- Item 1 — Novel Engine V2 -->
+          <article class="ip-item reveal" id="ipProd1" data-prod="prod1">
+            <div class="ip-visual">
+              <img src="images/product-novel-engine.jpg" alt="Novel Engine V2" class="ip-img" loading="lazy" />
+              <div class="ip-img-fade"></div>
+            </div>
+            <div class="ip-info">
+              <div class="ip-top">
+                <span class="ip-num">01</span>
+                <span class="ip-badge badge-bestseller">Best Seller</span>
+              </div>
+              <h3 class="ip-title">Novel Engine V2</h3>
+              <p class="ip-desc">Multipurpose PHP novel &amp; fiction reading platform — multi-genre library, user accounts, chapter reader, admin dashboard and monetisation built in.</p>
+              <div class="ip-meta-row">
+                <span class="ip-cat">PHP Script</span>
+                <span class="ip-sep">·</span>
+                <span class="ip-tags-inline">PHP &middot; MySQL &middot; Bootstrap</span>
+                <span class="ip-sep">·</span>
+                <span class="ip-price">$49</span>
+              </div>
+              <button class="ip-detail-btn" data-prod="prod1" id="ipDetail1">
+                View details <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+          </article>
+
+          <!-- Item 2 — Skolentra -->
+          <article class="ip-item ip-item-rev reveal" id="ipProd2" data-prod="prod2">
+            <div class="ip-visual">
+              <img src="images/product-skolentra.jpg" alt="Skolentra" class="ip-img" loading="lazy" />
+              <div class="ip-img-fade"></div>
+            </div>
+            <div class="ip-info">
+              <div class="ip-top">
+                <span class="ip-num">02</span>
+                <span class="ip-badge badge-featured">Featured</span>
+              </div>
+              <h3 class="ip-title">Skolentra</h3>
+              <p class="ip-desc">Complete school management system — student enrollment, attendance, grades, parent portal, fee collection, timetables and analytics all in one dashboard.</p>
+              <div class="ip-meta-row">
+                <span class="ip-cat">Laravel · PHP</span>
+                <span class="ip-sep">·</span>
+                <span class="ip-tags-inline">Laravel &middot; MySQL &middot; Chart.js</span>
+                <span class="ip-sep">·</span>
+                <span class="ip-price">$79</span>
+              </div>
+              <button class="ip-detail-btn" data-prod="prod2" id="ipDetail2">
+                View details <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+          </article>
+
+        </div><!-- /.ip-list -->
+
+        <div class="idx-prod-cta reveal">
+          <a href="shop.html" class="idx-prod-more-btn" id="shopAllBtn">
+            <i class="fa-solid fa-store"></i>
+            Browse all 6 products
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══ PRODUCT DETAIL DRAWER (index) ═══ -->
+    <div class="sh-drawer" id="ipDrawer" role="dialog" aria-modal="true" aria-label="Product details">
+      <div class="shd-backdrop" id="ipdBackdrop"></div>
+      <aside class="shd-panel" id="ipdPanel">
+        <button class="shd-close" id="ipdClose" aria-label="Close">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="shd-body" id="ipdBody"><!-- injected by JS --></div>
+      </aside>
+    </div>
+
     <!-- ═══════════ CONTACT ═══════════ -->
     <section class="contact-sec" id="contact">
       <div class="container">
 
-        <span class="sec-label reveal">// 05 &mdash; Contact</span>
+        <span class="sec-label reveal">// 06 &mdash; Contact</span>
 
         <div class="contact-grid reveal">
 
@@ -542,7 +634,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 
             <div class="social-row">
               <a href="https://github.com/Shuraih-Usman" class="soc-link" id="socialGithub" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-              <a href="https://linkedin.com/in/shuraihusman" class="soc-link" id="socialLinkedin" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+              <a href="https://www.linkedin.com/in/shuraihu-usman-1120ab411" class="soc-link" id="socialLinkedin" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
               <a href="https://twitter.com/ShuraihUsman" class="soc-link" id="socialTwitter" target="_blank" rel="noopener" aria-label="Twitter/X"><i class="fa-brands fa-x-twitter"></i></a>
               <a href="https://wa.me/234818140419490" class="soc-link" id="socialWhatsapp" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
             </div>

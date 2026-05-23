@@ -590,4 +590,144 @@ function startAnimations() {
   initImageLightbox();
   initProjectDrawer();
   initContactDrawer();
+  initIndexProductDrawer();
+}
+
+/* ─────────────────── INDEX PRODUCT DRAWER ─────────────────── */
+const INDEX_PRODUCTS = {
+  prod1: {
+    name: 'Novel Engine V2',
+    tagline: 'Multipurpose PHP Novel & Fiction Reading Platform',
+    category: 'PHP Script',
+    price: 49, oldPrice: 79,
+    sales: 248, rating: 4.8, reviews: 67,
+    badge: 'bestseller', badgeLabel: 'Best Seller',
+    img: 'images/product-novel-engine.jpg',
+    demoUrl: '#', buyUrl: '#',
+    tags: ['PHP', 'MySQL', 'Bootstrap', 'AJAX', 'jQuery'],
+    desc: 'Novel Engine V2 is a fully featured online novel and fiction reading platform. Readers can browse by genre, bookmark chapters, track reading progress, and leave reviews. Authors and admins manage content via a powerful backend. Monetise through Google Ads, subscription tiers, or pay-per-chapter.',
+    features: [
+      'Multi-genre library with nested categories',
+      'User authentication, profiles & reading history',
+      'Chapter-by-chapter reader with dark mode',
+      'Full admin dashboard — authors, novels, chapters',
+      'Monetisation: Ads, subscriptions & pay-per-read',
+      'SEO-friendly URLs & Open Graph meta tags',
+      'Comment & rating system per novel/chapter',
+      'Mobile-first responsive design',
+    ],
+  },
+  prod2: {
+    name: 'Skolentra',
+    tagline: 'Complete School Management System',
+    category: 'Laravel · PHP',
+    price: 79, oldPrice: 129,
+    sales: 183, rating: 4.9, reviews: 52,
+    badge: 'featured', badgeLabel: 'Featured',
+    img: 'images/product-skolentra.jpg',
+    demoUrl: '#', buyUrl: '#',
+    tags: ['PHP', 'Laravel', 'MySQL', 'Bootstrap', 'Chart.js'],
+    desc: 'Skolentra is a comprehensive school management system covering every aspect of school administration. From student enrollment and attendance tracking to grade management, parent portal, fee collection, timetable generation, and detailed analytics reports — all in one clean, modern dashboard.',
+    features: [
+      'Student enrollment & profile management',
+      'Attendance tracking with SMS notifications',
+      'Grade entry, report cards & transcript generation',
+      'Parent portal with real-time child progress',
+      'Fee collection, invoicing & payment tracking',
+      'Timetable & class schedule generator',
+      'Teacher & staff HR management',
+      'Analytics dashboard with exportable PDF reports',
+    ],
+  },
+};
+
+function initIndexProductDrawer() {
+  const drawer  = $('#ipDrawer');
+  const body    = $('#ipdBody');
+  const closeBtn= $('#ipdClose');
+  const backdrop= $('#ipdBackdrop');
+  if (!drawer) return;
+
+  function openDrawer(prod) {
+    body.innerHTML = buildIPDrawerHTML(prod);
+    drawer.classList.add('shd-open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeDrawer() {
+    drawer.classList.remove('shd-open');
+    document.body.style.overflow = '';
+  }
+
+  $$('.ip-detail-btn').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      const p = INDEX_PRODUCTS[btn.dataset.prod];
+      if (p) openDrawer(p);
+    });
+  });
+
+  closeBtn?.addEventListener('click', closeDrawer);
+  backdrop?.addEventListener('click', closeDrawer);
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && drawer.classList.contains('shd-open')) closeDrawer();
+  });
+
+  function buildIPDrawerHTML(p) {
+    const disc = p.oldPrice ? Math.round((1 - p.price / p.oldPrice) * 100) : 0;
+    const starsHTML = (() => {
+      const full = Math.floor(p.rating), half = p.rating % 1 >= 0.5 ? 1 : 0, empty = 5 - full - half;
+      return '<i class="fa-solid fa-star"></i>'.repeat(full) +
+             (half ? '<i class="fa-solid fa-star-half-stroke"></i>' : '') +
+             '<i class="fa-regular fa-star"></i>'.repeat(empty);
+    })();
+    const badgeHTML = p.badge
+      ? `<span class="shcard-badge badge-${p.badge}">${p.badgeLabel}</span>` : '';
+    const featHTML = p.features.map(f =>
+      `<li><i class="fa-solid fa-circle-check"></i>${f}</li>`).join('');
+    const tagsHTML = p.tags.map(t => `<span>${t}</span>`).join('');
+
+    return `
+      <div class="shd-img-wrap">
+        <img src="${p.img}" alt="${p.name}" onerror="this.src='images/product-novel-engine.jpg'" />
+        <div class="shd-img-gradient"></div>
+        <div class="shd-img-badges">${badgeHTML}</div>
+      </div>
+      <div class="shd-content">
+        <div class="shd-header">
+          <p class="shd-cat">${p.category}</p>
+          <h2 class="shd-name">${p.name}</h2>
+          <p class="shd-tagline">${p.tagline}</p>
+        </div>
+        <div class="shd-price-row">
+          <span class="shd-price">$${p.price}</span>
+          ${p.oldPrice ? `<span class="shd-old-price">$${p.oldPrice}</span>` : ''}
+          ${disc ? `<span class="shd-discount">-${disc}% OFF</span>` : ''}
+          <div class="shd-rating-row">
+            <span class="shd-stars">${starsHTML}</span>
+            <span class="shd-rating-val">${p.rating}</span>
+            <span class="shd-reviews">(${p.reviews} reviews)</span>
+          </div>
+        </div>
+        <div class="shd-ctas">
+          <a href="${p.buyUrl}" class="shd-btn-buy" target="_blank" rel="noopener">
+            <i class="fa-solid fa-cart-shopping"></i> Buy Now — $${p.price}
+          </a>
+          <a href="${p.demoUrl}" class="shd-btn-demo" target="_blank" rel="noopener">
+            <i class="fa-solid fa-eye"></i> Live Preview
+          </a>
+        </div>
+        <div class="shd-stats">
+          <div class="shd-stat"><span class="shd-stat-n">${p.sales}+</span><span class="shd-stat-l">Sales</span></div>
+          <div class="shd-stat"><span class="shd-stat-n">${p.rating}/5</span><span class="shd-stat-l">Rating</span></div>
+          <div class="shd-stat"><span class="shd-stat-n">6 mo</span><span class="shd-stat-l">Support</span></div>
+          <div class="shd-stat"><span class="shd-stat-n">Free</span><span class="shd-stat-l">Updates</span></div>
+        </div>
+        <p class="shd-desc-head">About this script</p>
+        <p class="shd-desc">${p.desc}</p>
+        <p class="shd-desc-head">What's included</p>
+        <ul class="shd-feat-list">${featHTML}</ul>
+        <div class="shd-tags">${tagsHTML}</div>
+      </div>
+    `;
+  }
 }

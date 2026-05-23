@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PHP Scripts &amp; Products | Shuraihu Usman — Developer Marketplace</title>
+  <meta name="description" content="Browse premium PHP scripts and web application products by Shuraihu Usman. Ready-to-deploy, fully featured, and professionally coded." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="shop.css" />
+</head>
+<body>
+
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursorFollower"></div>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
+    <a href="index.html" class="nav-logo" aria-label="Home">&lt;SU/&gt;</a>
+    <ul class="nav-links" role="list">
+      <li><a href="index.html#home"    class="nav-link">Home</a></li>
+      <li><a href="index.html#about"   class="nav-link">About</a></li>
+      <li><a href="projects.html"      class="nav-link">Projects</a></li>
+      <li><a href="shop.html"          class="nav-link active">Products</a></li>
+      <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="index.html#contact" class="nav-cta" id="navCta">Hire me</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true">
+    <ul>
+      <li><a href="index.html#home"    data-close class="mob-link">Home</a></li>
+      <li><a href="index.html#about"   data-close class="mob-link">About</a></li>
+      <li><a href="projects.html"      data-close class="mob-link">Projects</a></li>
+      <li><a href="shop.html"          data-close class="mob-link active">Products</a></li>
+      <li><a href="index.html#contact" data-close class="mob-link">Contact</a></li>
+    </ul>
+  </div>
+
+  <main>
+
+    <!-- ═══ HERO ═══ -->
+    <section class="sh-hero" id="shHero">
+      <div class="sh-hero-glow" aria-hidden="true"></div>
+      <div class="sh-hero-glow-2" aria-hidden="true"></div>
+      <div class="container">
+
+        <a href="index.html" class="ap-back" id="shBack">
+          <i class="fa-solid fa-arrow-left"></i> Back to Portfolio
+        </a>
+
+        <div class="sh-eyebrow" style="margin-top:1.4rem;">
+          <span class="sh-eyebrow-line"></span>
+          <span class="sec-label" style="margin:0;">// Digital Products &amp; Scripts</span>
+        </div>
+
+        <div class="sh-title">
+          <span class="sh-t1">Built to ship. Ready to sell.</span>
+          <span class="sh-t2">Scripts<span class="sh-dot">.</span></span>
+        </div>
+
+        <div class="sh-hero-body">
+          <p class="sh-subtitle">
+            Premium PHP web application scripts — fully featured, clean code, documented, and ready to launch.
+            Each product is built to the same standard I apply to client work.
+          </p>
+          <div class="sh-trust" aria-label="Product guarantees">
+            <div class="sh-trust-item">
+              <i class="fa-solid fa-code" aria-hidden="true"></i>
+              Clean, well-documented code
+            </div>
+            <div class="sh-trust-item">
+              <i class="fa-solid fa-headset" aria-hidden="true"></i>
+              6 months dedicated support
+            </div>
+            <div class="sh-trust-item">
+              <i class="fa-solid fa-rotate" aria-hidden="true"></i>
+              Free future updates included
+            </div>
+            <div class="sh-trust-item">
+              <i class="fa-solid fa-bolt" aria-hidden="true"></i>
+              Instant download after purchase
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══ TOOLBAR ═══ -->
+    <div class="sh-toolbar-wrap" id="shToolbarWrap">
+      <div class="container">
+        <div class="sh-toolbar" id="shToolbar">
+
+          <div class="sh-filters" id="shFilters" role="group" aria-label="Filter by category">
+            <button class="shf-btn active" data-filter="all"      id="sfAll">All <span class="shf-count" id="sfAllCount">6</span></button>
+            <button class="shf-btn"        data-filter="php"      id="sfPhp">PHP <span class="shf-count">4</span></button>
+            <button class="shf-btn"        data-filter="laravel"  id="sfLaravel">Laravel <span class="shf-count">2</span></button>
+            <button class="shf-btn"        data-filter="education" id="sfEdu">Education <span class="shf-count">1</span></button>
+            <button class="shf-btn"        data-filter="ecommerce" id="sfEcom">E-Commerce <span class="shf-count">2</span></button>
+          </div>
+
+          <span class="sh-toolbar-sep" aria-hidden="true"></span>
+
+          <div class="sh-sort" id="shSortWrap">
+            <span class="sh-sort-label">Sort:</span>
+            <select id="shSort" aria-label="Sort products">
+              <option value="popular">Most Popular</option>
+              <option value="newest">Newest First</option>
+              <option value="price-low">Price: Low → High</option>
+              <option value="price-high">Price: High → Low</option>
+            </select>
+            <i class="fa-solid fa-chevron-down sh-sort-icon" aria-hidden="true"></i>
+          </div>
+
+          <span class="sh-results-count" id="shResultsCount">Showing <span>6</span> products</span>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ PRODUCT LIST ═══ -->
+    <section class="sh-grid-sec">
+      <div class="container">
+        <div class="sh-grid" id="shGrid" role="list" aria-label="Products">
+          <!-- Injected by shop.js -->
+        </div>
+        <div class="sh-no-results" id="shNoResults" hidden>
+          <i class="fa-solid fa-box-open" aria-hidden="true"></i>
+          <p>No products match this filter yet.</p>
+          <button onclick="document.querySelector('[data-filter=all]').click()">View all products</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ CTA STRIP ═══ -->
+    <section class="sh-cta-strip">
+      <div class="container sh-cta-inner">
+        <div class="sh-cta-text">
+          <p class="sh-cta-kicker">// Custom Development</p>
+          <h3>Need a <span class="teal">bespoke</span> script?</h3>
+          <p>Have a specific idea that none of these cover? I build fully custom PHP applications for businesses and startups — on time, on budget.</p>
+        </div>
+        <div class="sh-cta-right">
+          <a href="index.html#contact" class="sh-cta-btn" id="shopCtaBtn">
+            <i class="fa-solid fa-paper-plane"></i> Get a Free Quote
+          </a>
+          <span class="sh-cta-note">Usually reply within 24 hours</span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══ PRODUCT DETAIL DRAWER ═══ -->
+  <div class="sh-drawer" id="shDrawer" role="dialog" aria-modal="true" aria-label="Product details">
+    <div class="shd-backdrop" id="shdBackdrop"></div>
+    <aside class="shd-panel" id="shdPanel">
+      <button class="shd-close" id="shdClose" aria-label="Close product details">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="shd-body" id="shdBody"><!-- injected --></div>
+    </aside>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <a href="index.html" class="footer-logo">&lt;SU/&gt;</a>
+      <p class="footer-copy">&copy; <span id="footerYear"></span> Shuraihu Usman. Crafted with <i class="fa-solid fa-heart" style="color:#f87171"></i> and lots of <i class="fa-solid fa-mug-hot" style="color:#fbbf24"></i></p>
+      <a href="#shHero" class="footer-top" aria-label="Back to top"><i class="fa-solid fa-chevron-up"></i></a>
+    </div>
+  </footer>
+
+  <script src="shop.js"></script>
+</body>
+</html>
