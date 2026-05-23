@@ -9,17 +9,14 @@ const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
 /* ─────────────────── PROJECT DATA ─────────────────── */
 const PROJECT_DATA = {
   proj1: {
-    num: '01', year: '2024',
+    num: '01', year: '2024', catLabel: 'Full-Stack',
     title: 'ShopNest E-Commerce',
-    liveLabel: 'shopnest.app',
     liveUrl: '#', codeUrl: '#',
-    mockupClass: 'bm-s1',
-    mockupInner: `
-      <div class="bm-nav-strip"></div>
-      <div class="bm-hero-strip"></div>
-      <div class="bm-cards">
-        <div class="bm-card"></div><div class="bm-card"></div><div class="bm-card"></div>
-      </div>`,
+    images: [
+      'images/proj-ecommerce.jpg',
+      'images/proj-analytics.jpg',
+      'images/proj-kanban.jpg',
+    ],
     desc: `ShopNest is a modern full-stack e-commerce platform built with React and Node.js. It supports real-time inventory tracking, Stripe & PayPal payment processing, product filtering, JWT-based authentication, and a comprehensive admin dashboard for managing products, orders, and customers at scale.`,
     features: [
       'Real-time inventory & stock management',
@@ -32,19 +29,14 @@ const PROJECT_DATA = {
     tags: ['React', 'Node.js', 'Express', 'MongoDB', 'Stripe', 'JWT', 'Tailwind'],
   },
   proj2: {
-    num: '02', year: '2023',
+    num: '02', year: '2023', catLabel: 'Full-Stack',
     title: 'Analytix SaaS Dashboard',
-    liveLabel: 'analytix.io',
     liveUrl: '#', codeUrl: '#',
-    mockupClass: 'bm-s2',
-    mockupInner: `
-      <div class="bm-sidebar"></div>
-      <div class="bm-main">
-        <div class="bm-chart"></div>
-        <div class="bm-stat-row">
-          <div class="bm-stat"></div><div class="bm-stat"></div><div class="bm-stat"></div>
-        </div>
-      </div>`,
+    images: [
+      'images/proj-analytics.jpg',
+      'images/proj-finance.jpg',
+      'images/proj-healthcare.jpg',
+    ],
     desc: `Analytix is a real-time SaaS analytics platform designed for product teams. It provides interactive data visualisation, team collaboration features, and automated report generation. The platform supports multiple data sources and processes thousands of events per second through a Redis-powered queue.`,
     features: [
       'Real-time data visualisation with Chart.js',
@@ -57,18 +49,14 @@ const PROJECT_DATA = {
     tags: ['Next.js', 'TypeScript', 'PostgreSQL', 'Prisma', 'Redis', 'Chart.js', 'Tailwind'],
   },
   proj3: {
-    num: '03', year: '2023',
+    num: '03', year: '2023', catLabel: 'Full-Stack',
     title: 'TaskFlow — Laravel App',
-    liveLabel: 'taskflow.dev',
     liveUrl: '#', codeUrl: '#',
-    mockupClass: 'bm-s3',
-    mockupInner: `
-      <div class="bm-nav-strip"></div>
-      <div class="bm-board">
-        <div class="bm-col"><div class="bm-ticket"></div><div class="bm-ticket"></div></div>
-        <div class="bm-col"><div class="bm-ticket"></div></div>
-        <div class="bm-col"><div class="bm-ticket"></div><div class="bm-ticket"></div></div>
-      </div>`,
+    images: [
+      'images/proj-kanban.jpg',
+      'images/proj-ecommerce.jpg',
+      'images/proj-education.jpg',
+    ],
     desc: `TaskFlow is a full-featured project management application built with PHP Laravel and React. It features Kanban-style drag-and-drop boards, Gantt chart views, team workspaces, real-time notifications via WebSockets, time tracking, and integrations with popular productivity tools.`,
     features: [
       'Drag-and-drop Kanban boards (React DnD)',
@@ -357,6 +345,7 @@ function initProjectDrawer() {
     const proj = PROJECT_DATA[projId];
     if (!proj) return;
     pdBody.innerHTML = buildDrawerHTML(proj);
+    initGallery(pdBody);
     drawer.classList.add('pd-open');
     document.body.style.overflow = 'hidden';
   }
@@ -367,45 +356,53 @@ function initProjectDrawer() {
   }
 
   function buildDrawerHTML(p) {
+    const imgs  = p.images || [];
+    const slides = imgs.map((src, i) =>
+      `<div class="pg-slide${i===0?' pg-active':''}" data-idx="${i}"><img src="${src}" alt="${p.title} screenshot ${i+1}" loading="${i===0?'eager':'lazy'}" onerror="this.src='images/proj-ecommerce.jpg'"/></div>`
+    ).join('');
+    const dots = imgs.map((_, i) =>
+      `<button class="pg-dot${i===0?' pg-dot-active':''}" data-goto="${i}" aria-label="Slide ${i+1}"></button>`
+    ).join('');
+
     return `
-      <div class="pd-eyebrow">
-        <span class="pd-num">${p.num}</span>
-        <div class="pd-meta">
-          <span class="pd-year">${p.year}</span>
-          <h2 class="pd-title">${p.title}</h2>
+      <div class="pd-gallery" id="pdGallery">
+        <div class="pg-track" id="pgTrack">${slides}</div>
+        ${imgs.length > 1 ? `
+          <button class="pg-arrow pg-prev" id="pgPrev" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
+          <button class="pg-arrow pg-next" id="pgNext" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
+          <div class="pg-dots" id="pgDots">${dots}</div>
+          <span class="pg-counter" id="pgCounter">1 / ${imgs.length}</span>` : ''}
+        <div class="pg-badges">
+          <span class="pcard-badge pcard-cat-badge">${p.catLabel || 'Project'}</span>
+          <span class="pcard-badge pcard-year-badge">${p.year}</span>
         </div>
       </div>
 
-      <div class="pd-mockup">
-        <div class="browser-mock">
-          <div class="bm-bar">
-            <span class="bm-dot"></span><span class="bm-dot"></span><span class="bm-dot"></span>
-            <span class="bm-url">${p.liveLabel}</span>
+      <div class="pd-content">
+        <div class="pd-eyebrow">
+          <span class="pd-num">${p.num}</span>
+          <div class="pd-meta">
+            <span class="pd-year">${p.year}</span>
+            <h2 class="pd-title">${p.title}</h2>
           </div>
-          <div class="bm-screen ${p.mockupClass}">${p.mockupInner}</div>
         </div>
-      </div>
-
-      <div class="pd-divider"></div>
-
-      <p class="pd-desc">${p.desc}</p>
-
-      <p class="pd-features-head">Key Features</p>
-      <ul class="pd-features-list">
-        ${p.features.map(f => `<li><i class="fa-solid fa-check"></i>${f}</li>`).join('')}
-      </ul>
-
-      <div class="pd-tags">
-        ${p.tags.map(t => `<span>${t}</span>`).join('')}
-      </div>
-
-      <div class="pd-actions">
-        <a href="${p.liveUrl}" class="pd-btn-live" target="_blank" rel="noopener">
-          <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
-        </a>
-        <a href="${p.codeUrl}" class="pd-btn-code" target="_blank" rel="noopener">
-          <i class="fa-brands fa-github"></i> Source Code
-        </a>
+        <div class="pd-divider"></div>
+        <p class="pd-desc">${p.desc}</p>
+        <p class="pd-features-head">Key Features</p>
+        <ul class="pd-features-list">
+          ${p.features.map(f => `<li><i class="fa-solid fa-circle-check"></i>${f}</li>`).join('')}
+        </ul>
+        <div class="pd-tags">
+          ${p.tags.map(t => `<span>${t}</span>`).join('')}
+        </div>
+        <div class="pd-actions">
+          <a href="${p.liveUrl}" class="pd-btn-live" target="_blank" rel="noopener">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
+          </a>
+          <a href="${p.codeUrl}" class="pd-btn-code" target="_blank" rel="noopener">
+            <i class="fa-brands fa-github"></i> Source Code
+          </a>
+        </div>
       </div>
     `;
   }
@@ -419,6 +416,43 @@ function initProjectDrawer() {
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape' && drawer.classList.contains('pd-open')) closeDrawer();
   });
+}
+
+/* ─────────────────────────────────────────────────────────── SHARED GALLERY */
+function initGallery(ctx) {
+  const track   = ctx.querySelector('#pgTrack');
+  const prevBtn = ctx.querySelector('#pgPrev');
+  const nextBtn = ctx.querySelector('#pgNext');
+  const dotsEl  = ctx.querySelector('#pgDots');
+  const counter = ctx.querySelector('#pgCounter');
+  const slides  = ctx ? [...ctx.querySelectorAll('.pg-slide')] : [];
+  if (!track || slides.length < 2) return;
+
+  let current = 0;
+
+  function goTo(n) {
+    slides[current].classList.remove('pg-active');
+    if (dotsEl) dotsEl.querySelectorAll('.pg-dot')[current]?.classList.remove('pg-dot-active');
+    current = (n + slides.length) % slides.length;
+    slides[current].classList.add('pg-active');
+    if (dotsEl) dotsEl.querySelectorAll('.pg-dot')[current]?.classList.add('pg-dot-active');
+    if (counter) counter.textContent = `${current + 1} / ${slides.length}`;
+  }
+
+  prevBtn?.addEventListener('click', () => goTo(current - 1));
+  nextBtn?.addEventListener('click', () => goTo(current + 1));
+
+  dotsEl?.querySelectorAll('.pg-dot').forEach(dot => {
+    dot.addEventListener('click', () => goTo(+dot.dataset.goto));
+  });
+
+  /* Touch/swipe support */
+  let startX = 0;
+  track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+  track.addEventListener('touchend',   e => {
+    const diff = startX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 40) goTo(diff > 0 ? current + 1 : current - 1);
+  }, { passive: true });
 }
 
 /* ─────────────────── SMOOTH SCROLL ─────────────────── */

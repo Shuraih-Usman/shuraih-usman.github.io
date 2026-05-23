@@ -12,8 +12,9 @@ const ALL_PROJECTS = [
   {
     id: 1, num: '01', cat: 'fullstack', catLabel: 'Full-Stack', year: '2024',
     title: 'ShopNest E-Commerce',
-    desc: 'Full-featured e-commerce platform with Stripe payments, real-time inventory management, and a powerful admin dashboard. Built for scale with a clean REST API backend.',
+    desc: 'Full-featured e-commerce platform with Stripe payments, real-time inventory management, and a powerful admin dashboard. Built for scale.',
     longDesc: 'ShopNest is a modern full-stack e-commerce platform built with React and Node.js. The platform supports real-time inventory tracking, Stripe & PayPal payment processing, product search & filtering, JWT-based authentication, and a comprehensive admin dashboard for managing products, orders, and customers at scale.',
+    images: ['images/proj-ecommerce.jpg', 'images/proj-analytics.jpg', 'images/proj-kanban.jpg'],
     features: [
       'Real-time inventory & stock management',
       'Stripe & PayPal payment gateway integration',
@@ -31,6 +32,7 @@ const ALL_PROJECTS = [
     title: 'Analytix SaaS Dashboard',
     desc: 'Real-time analytics platform with interactive charts, team collaboration, and automated report generation for 500+ active teams.',
     longDesc: 'Analytix is a real-time SaaS analytics platform designed for product teams. It provides interactive data visualisation, team collaboration features, and automated report generation. The platform supports multiple data sources and processes thousands of events per second through a Redis-powered queue system.',
+    images: ['images/proj-analytics.jpg', 'images/proj-finance.jpg', 'images/proj-healthcare.jpg'],
     features: [
       'Real-time data visualisation with Chart.js',
       'Customisable chart widgets & dashboards',
@@ -48,6 +50,7 @@ const ALL_PROJECTS = [
     title: 'TaskFlow — Laravel App',
     desc: 'Project management tool with drag-and-drop Kanban boards, real-time notifications via WebSockets, and role-based access control.',
     longDesc: 'TaskFlow is a full-featured project management application built with PHP Laravel and React. It features Kanban-style drag-and-drop boards, Gantt chart views, team workspaces, real-time notifications via WebSockets, time tracking, and integrations with popular productivity tools.',
+    images: ['images/proj-kanban.jpg', 'images/proj-ecommerce.jpg', 'images/proj-education.jpg'],
     features: [
       'Drag-and-drop Kanban boards (React DnD)',
       'Real-time notifications via Laravel WebSockets',
@@ -65,6 +68,7 @@ const ALL_PROJECTS = [
     title: 'FoodieQuick Delivery',
     desc: 'Food delivery app with real-time GPS order tracking, restaurant management portal, and Stripe payment integration.',
     longDesc: 'FoodieQuick is a full-featured food delivery mobile app built with React Native. It features real-time GPS order tracking, restaurant menus with rich media, Stripe payment processing, push notifications, and a separate restaurant management portal for order handling.',
+    images: ['images/proj-food.jpg', 'images/proj-realestate.jpg', 'images/proj-ecommerce.jpg'],
     features: [
       'Real-time GPS order tracking on map',
       'Stripe & Paystack payment integration',
@@ -82,6 +86,7 @@ const ALL_PROJECTS = [
     title: 'EduLearn Platform',
     desc: 'E-learning platform with video streaming, interactive quizzes, learner progress tracking, and instructor analytics dashboards.',
     longDesc: 'EduLearn is a comprehensive e-learning platform built with Vue.js and Django. It supports HD video streaming via AWS S3, interactive quizzes with auto-grading, learner progress tracking, certificate generation, and detailed instructor analytics dashboards.',
+    images: ['images/proj-education.jpg', 'images/proj-analytics.jpg', 'images/proj-kanban.jpg'],
     features: [
       'HD video streaming via AWS S3 & CloudFront',
       'Interactive quizzes with instant auto-grading',
@@ -99,6 +104,7 @@ const ALL_PROJECTS = [
     title: 'PropNest Real Estate',
     desc: 'Property listing platform with interactive map search, advanced filtering, virtual tour support, and agent dashboards.',
     longDesc: 'PropNest is a modern real estate platform built with React and Node.js. It features an interactive Google Maps search, advanced property filtering, virtual 360° tour support, mortgage calculator, saved properties wishlist, and a comprehensive agent management dashboard.',
+    images: ['images/proj-realestate.jpg', 'images/proj-ecommerce.jpg', 'images/proj-analytics.jpg'],
     features: [
       'Interactive Google Maps property search',
       'Advanced filtering (price, area, bedrooms, type)',
@@ -252,13 +258,13 @@ function buildCard(proj, delay) {
       />
       <div class="pcard-overlay" aria-hidden="true">
         <a href="${proj.live}" class="pcard-live-btn" target="_blank" rel="noopener" tabindex="-1">
-          <i class="fa-solid fa-arrow-up-right-from-square"></i> Live
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> 
         </a>
         <button class="pcard-detail-btn" data-proj-id="${proj.id}" tabindex="-1">
-          <i class="fa-solid fa-eye"></i> Details
+          <i class="fa-solid fa-eye"></i> 
         </button>
         <a href="${proj.code}" class="pcard-code-btn" target="_blank" rel="noopener" tabindex="-1">
-          <i class="fa-brands fa-github"></i> Code
+          <i class="fa-brands fa-github"></i>
         </a>
       </div>
       <span class="pcard-badge pcard-cat-badge">${proj.catLabel}</span>
@@ -290,6 +296,7 @@ const apdBody    = $('#apdBody');
 
 function openDrawer(proj) {
   apdBody.innerHTML = buildDrawerHTML(proj);
+  initGallery(apdBody);
   drawer.classList.add('apd-open');
   document.body.style.overflow = 'hidden';
 }
@@ -300,26 +307,29 @@ function closeDrawer() {
 }
 
 function buildDrawerHTML(p) {
-  const featureRows = p.features.map(f =>
-    `<li><i class="fa-solid fa-circle-check"></i>${f}</li>`
+  const imgs   = p.images || [p.img];
+  const slides = imgs.map((src, i) =>
+    `<div class="pg-slide${i===0?' pg-active':''}" data-idx="${i}"><img src="${src}" alt="${p.title} screenshot ${i+1}" loading="${i===0?'eager':'lazy'}" onerror="this.src='images/proj-ecommerce.jpg'"/></div>`
+  ).join('');
+  const dots = imgs.map((_, i) =>
+    `<button class="pg-dot${i===0?' pg-dot-active':''}" data-goto="${i}" aria-label="Slide ${i+1}"></button>`
   ).join('');
 
-  const tagChips = p.tags.map(t => `<span>${t}</span>`).join('');
-
   return `
-    <!-- Full-width image with gradient fade -->
-    <div class="apd-img-hero">
-      <img src="${p.img}" alt="${p.title}" onerror="this.src='images/proj-analytics.jpg'" />
-      <div class="apd-img-gradient"></div>
-      <div class="apd-img-badges">
+    <div class="pd-gallery" id="pdGallery">
+      <div class="pg-track" id="pgTrack">${slides}</div>
+      ${imgs.length > 1 ? `
+        <button class="pg-arrow pg-prev" id="pgPrev" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
+        <button class="pg-arrow pg-next" id="pgNext" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
+        <div class="pg-dots" id="pgDots">${dots}</div>
+        <span class="pg-counter" id="pgCounter">1 / ${imgs.length}</span>` : ''}
+      <div class="pg-badges">
         <span class="pcard-badge pcard-cat-badge">${p.catLabel}</span>
         <span class="pcard-badge pcard-year-badge">${p.year}</span>
       </div>
     </div>
 
     <div class="apd-content">
-
-      <!-- Number + Title -->
       <div class="apd-eyebrow">
         <span class="apd-num">${p.num}</span>
         <div class="apd-meta">
@@ -327,20 +337,13 @@ function buildDrawerHTML(p) {
           <h2 class="apd-title">${p.title}</h2>
         </div>
       </div>
-
       <div class="apd-divider"></div>
-
-      <!-- Long description -->
       <p class="apd-desc">${p.longDesc}</p>
-
-      <!-- Features -->
       <p class="apd-feat-head">Key Features</p>
-      <ul class="apd-feat-list">${featureRows}</ul>
-
-      <!-- Tech tags -->
-      <div class="apd-tags">${tagChips}</div>
-
-      <!-- Action buttons -->
+      <ul class="apd-feat-list">
+        ${p.features.map(f => `<li><i class="fa-solid fa-circle-check"></i>${f}</li>`).join('')}
+      </ul>
+      <div class="apd-tags">${p.tags.map(t => `<span>${t}</span>`).join('')}</div>
       <div class="apd-actions">
         <a href="${p.live}" class="apd-btn-live" target="_blank" rel="noopener">
           <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
@@ -349,7 +352,6 @@ function buildDrawerHTML(p) {
           <i class="fa-brands fa-github"></i> Source Code
         </a>
       </div>
-
     </div>
   `;
 }
@@ -511,6 +513,41 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 });
 const fyEl = $('#footerYear');
 if (fyEl) fyEl.textContent = new Date().getFullYear();
+
+/* ─────────────────── SHARED GALLERY ─────────────────── */
+function initGallery(ctx) {
+  const track   = ctx.querySelector('#pgTrack');
+  const prevBtn = ctx.querySelector('#pgPrev');
+  const nextBtn = ctx.querySelector('#pgNext');
+  const dotsEl  = ctx.querySelector('#pgDots');
+  const counter = ctx.querySelector('#pgCounter');
+  const slides  = [...ctx.querySelectorAll('.pg-slide')];
+  if (!track || slides.length < 2) return;
+
+  let current = 0;
+
+  function goTo(n) {
+    slides[current].classList.remove('pg-active');
+    dotsEl?.querySelectorAll('.pg-dot')[current]?.classList.remove('pg-dot-active');
+    current = (n + slides.length) % slides.length;
+    slides[current].classList.add('pg-active');
+    dotsEl?.querySelectorAll('.pg-dot')[current]?.classList.add('pg-dot-active');
+    if (counter) counter.textContent = `${current + 1} / ${slides.length}`;
+  }
+
+  prevBtn?.addEventListener('click', () => goTo(current - 1));
+  nextBtn?.addEventListener('click', () => goTo(current + 1));
+  dotsEl?.querySelectorAll('.pg-dot').forEach(dot =>
+    dot.addEventListener('click', () => goTo(+dot.dataset.goto))
+  );
+
+  let startX = 0;
+  track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+  track.addEventListener('touchend',   e => {
+    const diff = startX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 40) goTo(diff > 0 ? current + 1 : current - 1);
+  }, { passive: true });
+}
 
 /* ─────────────────── INIT ─────────────────── */
 loadMore();

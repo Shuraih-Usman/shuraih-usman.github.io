@@ -1392,9 +1392,10 @@ a.cdr-info-item:hover { color: var(--teal); }
 
 .pd-body {
   overflow-y: auto; flex: 1;
-  padding: 2.5rem 2.5rem 3rem;
   scrollbar-width: thin;
   scrollbar-color: rgba(20,184,166,0.3) transparent;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Drawer content */
@@ -1419,8 +1420,84 @@ a.cdr-info-item:hover { color: var(--teal); }
   font-weight: 800; letter-spacing: -.03em; line-height: 1.15;
 }
 
-.pd-mockup { margin-bottom: 2rem; }
-.pd-mockup .bm-screen { height: 250px !important; }
+/* ─── Shared image gallery (used in both project drawers) ─── */
+.pd-gallery {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  background: #030a08;
+  flex-shrink: 0;
+}
+.pg-track {
+  position: relative;
+  width: 100%; height: 100%;
+}
+.pg-slide {
+  position: absolute; inset: 0;
+  opacity: 0;
+  transition: opacity .5s ease;
+  pointer-events: none;
+}
+.pg-slide.pg-active {
+  opacity: 1;
+  pointer-events: auto;
+}
+.pg-slide img {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: top center;
+  display: block;
+}
+
+/* Arrow buttons */
+.pg-arrow {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 38px; height: 38px;
+  background: rgba(5,15,12,0.75);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: rgba(255,255,255,0.7); font-size: .75rem; cursor: pointer; z-index: 5;
+  backdrop-filter: blur(8px);
+  transition: all .25s ease;
+}
+.pg-arrow:hover {
+  background: var(--teal); border-color: var(--teal); color: var(--bg);
+  transform: translateY(-50%) scale(1.1);
+}
+.pg-prev { left: .75rem; }
+.pg-next { right: .75rem; }
+
+/* Dot indicators */
+.pg-dots {
+  position: absolute; bottom: .75rem; left: 50%; transform: translateX(-50%);
+  display: flex; gap: .4rem; z-index: 5;
+}
+.pg-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: rgba(255,255,255,0.35); border: none; cursor: pointer; padding: 0;
+  transition: all .25s ease;
+}
+.pg-dot.pg-dot-active { background: var(--teal); transform: scale(1.4); }
+
+/* Counter */
+.pg-counter {
+  position: absolute; top: .75rem; right: .75rem;
+  font-family: var(--mono); font-size: .62rem;
+  color: rgba(255,255,255,0.65);
+  background: rgba(0,0,0,0.5); backdrop-filter: blur(6px);
+  padding: .2rem .55rem; border-radius: 50px;
+  z-index: 5;
+}
+
+/* Badges overlay */
+.pg-badges {
+  position: absolute; top: .75rem; left: .75rem;
+  display: flex; gap: .4rem; z-index: 5;
+}
+
+/* Content wrapper below gallery */
+.pd-content { padding: 1.5rem 2rem 2.5rem; }
 
 .pd-divider {
   height: 1px; background: var(--border);
