@@ -9,64 +9,64 @@ const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
 /* ─────────────────── PROJECT DATA ─────────────────── */
 const PROJECT_DATA = {
   proj1: {
-    num: '01', year: '2024', catLabel: 'Full-Stack',
-    title: 'ShopNest E-Commerce',
+    num: '01', year: '2025', catLabel: 'SaaS Platform',
+    title: 'Ahioma — Multi-Tenant Restaurant & Food SaaS',
     liveUrl: '#', codeUrl: '#',
     images: [
-      'images/proj-ecommerce.jpg',
+      'images/proj-food.jpg',
       'images/proj-analytics.jpg',
-      'images/proj-kanban.jpg',
+      'images/proj-ecommerce.jpg',
     ],
-    desc: `ShopNest is a modern full-stack e-commerce platform built with React and Node.js. It supports real-time inventory tracking, Stripe & PayPal payment processing, product filtering, JWT-based authentication, and a comprehensive admin dashboard for managing products, orders, and customers at scale.`,
+    desc: `Ahioma is a feature-rich, multi-tenant SaaS platform built for restaurants, eateries, and food businesses. It supports independent business accounts with separate databases/schemas, comprehensive restaurant operations, food catalog management, real-time orders, customer databases, and customizable administrative workflows.`,
     features: [
-      'Real-time inventory & stock management',
-      'Stripe & PayPal payment gateway integration',
-      'JWT authentication with role-based access',
-      'Admin dashboard with sales analytics',
-      'Advanced product search & filtering',
-      'Order tracking & automated email receipts',
+      'Multi-tenant architecture supporting isolated business accounts',
+      'Restaurant operations & food catalog management',
+      'Order dispatching, tracking & customer management modules',
+      'Reusable dashboards & customizable business workflows',
+      'Secure RESTful APIs with JWT authentication',
+      'PostgreSQL database optimized for high transaction loads',
     ],
-    tags: ['React', 'Node.js', 'Express', 'MongoDB', 'Stripe', 'JWT', 'Tailwind'],
+    tags: ['Node.js', 'Express.js', 'React.js', 'PostgreSQL', 'RESTful APIs', 'JWT', 'Tailwind CSS'],
   },
   proj2: {
-    num: '02', year: '2023', catLabel: 'Full-Stack',
-    title: 'Analytix SaaS Dashboard',
+    num: '02', year: '2025', catLabel: 'EdTech SaaS',
+    title: 'Skolentra — School Management SaaS with AI Features',
+    liveUrl: '#', codeUrl: '#',
+    images: [
+      'images/product-skolentra.jpg',
+      'images/proj-education.jpg',
+      'images/proj-analytics.jpg',
+    ],
+    desc: `Skolentra is a production-grade multi-tenant school management SaaS platform built with Laravel and PHP. It provides tailored portals for administrators, teachers, students, parents, finance, library, and examination roles. Equipped with cutting-edge AI assistance, automated CBT exams, customizable ID cards, and multi-currency billing.`,
+    features: [
+      'Multi-tenant role-based access (Admin, Teachers, Students, Parents, Finance, Library)',
+      'AI-powered education tools & smart administrative assistants',
+      'Online CBT examinations with instant grading & CA timetables',
+      'Term-by-term automated result & transcript generation',
+      'Multi-currency payment recording (NGN, USD, INR) with online/offline tracking',
+      'Role-based student/staff ID cards and customizable report card designs',
+    ],
+    tags: ['Laravel', 'PHP', 'Tailwind CSS', 'MySQL', 'REST APIs', 'JavaScript', 'AI Integration'],
+  },
+  proj3: {
+    num: '03', year: '2024', catLabel: 'POS & ERP',
+    title: 'OnTrack.ng — Business Management & POS Platform',
     liveUrl: '#', codeUrl: '#',
     images: [
       'images/proj-analytics.jpg',
-      'images/proj-finance.jpg',
-      'images/proj-healthcare.jpg',
-    ],
-    desc: `Analytix is a real-time SaaS analytics platform designed for product teams. It provides interactive data visualisation, team collaboration features, and automated report generation. The platform supports multiple data sources and processes thousands of events per second through a Redis-powered queue.`,
-    features: [
-      'Real-time data visualisation with Chart.js',
-      'Customisable chart widgets & dashboards',
-      'Team collaboration, comments & mentions',
-      'Automated PDF & CSV report generation',
-      'Multi-source data integration (REST & webhooks)',
-      'Role-based access control & team workspaces',
-    ],
-    tags: ['Next.js', 'TypeScript', 'PostgreSQL', 'Prisma', 'Redis', 'Chart.js', 'Tailwind'],
-  },
-  proj3: {
-    num: '03', year: '2023', catLabel: 'Full-Stack',
-    title: 'TaskFlow — Laravel App',
-    liveUrl: '#', codeUrl: '#',
-    images: [
       'images/proj-kanban.jpg',
-      'images/proj-ecommerce.jpg',
-      'images/proj-education.jpg',
+      'images/proj-finance.jpg',
     ],
-    desc: `TaskFlow is a full-featured project management application built with PHP Laravel and React. It features Kanban-style drag-and-drop boards, Gantt chart views, team workspaces, real-time notifications via WebSockets, time tracking, and integrations with popular productivity tools.`,
+    desc: `OnTrack.ng is a robust business management and Point-of-Sale (POS) platform developed to streamline daily commercial operations, multi-branch inventory tracking, sales processing, and real-time transaction reporting for growing enterprises.`,
     features: [
-      'Drag-and-drop Kanban boards (React DnD)',
-      'Real-time notifications via Laravel WebSockets',
-      'Role-based access control (Admin, Member, Viewer)',
-      'Time tracking & productivity reports',
-      'File attachments, comments & @mentions',
-      'Team workspaces with invite system',
+      'Point-of-Sale (POS) cashier checkout and barcode integration',
+      'Real-time inventory control & stock alert notifications',
+      'Transaction-related functionality & automated financial logs',
+      'Robust backend APIs for secure communication with central database',
+      'Database-driven business reporting & analytics export',
+      'Multi-user permission levels and audit trail logging',
     ],
-    tags: ['PHP', 'Laravel', 'React', 'MySQL', 'Redis', 'WebSockets', 'Livewire'],
+    tags: ['Laravel', 'PHP', 'MySQL', 'REST APIs', 'JavaScript', 'Bootstrap'],
   },
 };
 
@@ -236,7 +236,7 @@ const PROJECT_DATA = {
 function initTypewriter() {
   const el = $('#typewriter');
   if (!el) return;
-  const words = ['web experiences.', 'React.js apps.', 'Node.js APIs.', 'Laravel systems.', 'Django backends.', 'things you love.'];
+  const words = ['SaaS platforms.', 'Laravel systems.', 'Node & React apps.', 'React Native mobile.', 'RESTful APIs.', 'scalable databases.'];
   let wordIdx = 0, charIdx = 0, deleting = false;
 
   function type() {
@@ -619,24 +619,23 @@ const INDEX_PRODUCTS = {
   },
   prod2: {
     name: 'Skolentra',
-    tagline: 'Complete School Management System',
+    tagline: 'School Management SaaS with AI Features',
     category: 'Laravel · PHP',
     price: 79, oldPrice: 129,
     sales: 183, rating: 4.9, reviews: 52,
     badge: 'featured', badgeLabel: 'Featured',
     img: 'images/product-skolentra.jpg',
     demoUrl: '#', buyUrl: '#',
-    tags: ['PHP', 'Laravel', 'MySQL', 'Bootstrap', 'Chart.js'],
-    desc: 'Skolentra is a comprehensive school management system covering every aspect of school administration. From student enrollment and attendance tracking to grade management, parent portal, fee collection, timetable generation, and detailed analytics reports — all in one clean, modern dashboard.',
+    tags: ['Laravel', 'PHP', 'Tailwind CSS', 'MySQL', 'REST APIs', 'AI'],
+    desc: 'Skolentra is a comprehensive multi-tenant school management SaaS platform supporting administrators, teachers, students, parents, staff, finance, library, registration, and examination roles. Built with cutting-edge AI assistance, automated CBT examinations, CA timetables, and multi-currency payment tracking.',
     features: [
-      'Student enrollment & profile management',
-      'Attendance tracking with SMS notifications',
-      'Grade entry, report cards & transcript generation',
-      'Parent portal with real-time child progress',
-      'Fee collection, invoicing & payment tracking',
-      'Timetable & class schedule generator',
-      'Teacher & staff HR management',
-      'Analytics dashboard with exportable PDF reports',
+      'Multi-tenant architecture supporting independent school accounts',
+      'AI-powered features & smart administrative assistance',
+      'Online CBT examinations with instant automated grading',
+      'Exam & CA timetables, and term-by-term result generation',
+      'Multi-currency support for NGN, USD, and INR (online & offline)',
+      'Role-based ID cards and customizable student result templates',
+      'Full RESTful API backend with MySQL query optimization',
     ],
   },
 };
