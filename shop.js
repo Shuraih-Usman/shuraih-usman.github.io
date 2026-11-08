@@ -42,7 +42,7 @@ const PRODUCTS = [
     sales: 183, rating: 4.9, reviews: 52,
     badge: 'featured', badgeLabel: 'Featured',
     img: 'images/product-skolentra.jpg',
-    demoUrl: '#', buyUrl: '#',
+    demoUrl: 'https://skolentra.rusma.top', buyUrl: 'index.html#contact',
     tags: ['PHP', 'Laravel', 'Tailwind CSS', 'MySQL', 'REST APIs', 'AI'],
     desc: 'Skolentra is a comprehensive multi-tenant school management SaaS platform supporting administrators, teachers, students, parents, staff, finance, library, registration, and examination roles. Built with cutting-edge AI assistance, automated CBT examinations, CA timetables, and multi-currency payment tracking.',
     features: [

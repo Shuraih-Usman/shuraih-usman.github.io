@@ -11,47 +11,47 @@ const PROJECT_DATA = {
   proj1: {
     num: '01', year: '2025', catLabel: 'SaaS Platform',
     title: 'Ahioma — Multi-Tenant Restaurant & Food SaaS',
-    liveUrl: '#', codeUrl: '#',
+    liveUrl: 'https://ahioma.ng/', codeUrl: 'https://github.com/Shuraih-Usman',
     images: [
       'images/proj-food.jpg',
       'images/proj-analytics.jpg',
       'images/proj-ecommerce.jpg',
     ],
-    desc: `Ahioma is a feature-rich, multi-tenant SaaS platform built for restaurants, eateries, and food businesses. It supports independent business accounts with separate databases/schemas, comprehensive restaurant operations, food catalog management, real-time orders, customer databases, and customizable administrative workflows.`,
+    desc: `Ahioma is a feature-rich, multi-tenant SaaS platform built for restaurants, eateries, and food businesses. It supports independent business accounts with separate schemas, comprehensive restaurant operations, food catalog management, real-time orders, customer databases, and customizable administrative workflows.`,
     features: [
-      'Multi-tenant architecture supporting isolated business accounts',
-      'Restaurant operations & food catalog management',
-      'Order dispatching, tracking & customer management modules',
+      'Multi-tenant architecture supporting independent business accounts',
+      'Restaurant operations, food management & pricing catalogs',
+      'Order processing, tracking & customer administration modules',
       'Reusable dashboards & customizable business workflows',
-      'Secure RESTful APIs with JWT authentication',
-      'PostgreSQL database optimized for high transaction loads',
+      'Secure RESTful APIs with PostgreSQL database optimization',
+      'Production-ready features and end-to-end deployment support',
     ],
     tags: ['Node.js', 'Express.js', 'React.js', 'PostgreSQL', 'RESTful APIs', 'JWT', 'Tailwind CSS'],
   },
   proj2: {
     num: '02', year: '2025', catLabel: 'EdTech SaaS',
     title: 'Skolentra — School Management SaaS with AI Features',
-    liveUrl: '#', codeUrl: '#',
+    liveUrl: 'https://skolentra.rusma.top', codeUrl: 'https://github.com/Shuraih-Usman',
     images: [
       'images/product-skolentra.jpg',
       'images/proj-education.jpg',
       'images/proj-analytics.jpg',
     ],
-    desc: `Skolentra is a production-grade multi-tenant school management SaaS platform built with Laravel and PHP. It provides tailored portals for administrators, teachers, students, parents, finance, library, and examination roles. Equipped with cutting-edge AI assistance, automated CBT exams, customizable ID cards, and multi-currency billing.`,
+    desc: `Skolentra is a production-grade multi-tenant school management SaaS platform built with Laravel and PHP. It provides tailored portals for administrators, teachers, students, parents, staff, finance, library, registration, and examination roles. Equipped with cutting-edge AI assistance, automated CBT exams, customizable ID cards, and multi-currency billing.`,
     features: [
-      'Multi-tenant role-based access (Admin, Teachers, Students, Parents, Finance, Library)',
-      'AI-powered education tools & smart administrative assistants',
-      'Online CBT examinations with instant grading & CA timetables',
-      'Term-by-term automated result & transcript generation',
-      'Multi-currency payment recording (NGN, USD, INR) with online/offline tracking',
-      'Role-based student/staff ID cards and customizable report card designs',
+      'Multi-tenant school management supporting administrators, teachers, students, parents, staff, finance, library, registration, and examination roles',
+      'Implemented AI-powered features, online CBT examinations, exam/CA timetables, and term-by-term result generation',
+      'Multi-currency support for NGN, USD, and INR, with online and offline payment recording',
+      'Role-based ID cards and result templates with multiple customizable designs',
+      'Full RESTful API backend with MySQL database optimization',
+      'Automated student reporting, attendance logs, and fee invoicing',
     ],
-    tags: ['Laravel', 'PHP', 'Tailwind CSS', 'MySQL', 'REST APIs', 'JavaScript', 'AI Integration'],
+    tags: ['Laravel', 'PHP', 'JavaScript', 'Tailwind CSS', 'MySQL', 'REST APIs', 'AI Integration'],
   },
   proj3: {
     num: '03', year: '2024', catLabel: 'POS & ERP',
     title: 'OnTrack.ng — Business Management & POS Platform',
-    liveUrl: '#', codeUrl: '#',
+    liveUrl: 'https://ontrack.ng/', codeUrl: 'https://github.com/Shuraih-Usman',
     images: [
       'images/proj-analytics.jpg',
       'images/proj-kanban.jpg',
@@ -59,23 +59,63 @@ const PROJECT_DATA = {
     ],
     desc: `OnTrack.ng is a robust business management and Point-of-Sale (POS) platform developed to streamline daily commercial operations, multi-branch inventory tracking, sales processing, and real-time transaction reporting for growing enterprises.`,
     features: [
-      'Point-of-Sale (POS) cashier checkout and barcode integration',
-      'Real-time inventory control & stock alert notifications',
-      'Transaction-related functionality & automated financial logs',
-      'Robust backend APIs for secure communication with central database',
+      'Contributed to the development of a business management and Point-of-Sale platform supporting business operations, sales, inventory, and related workflows',
+      'Developed backend functionality and API services for reliable communication between application components and central database',
+      'Worked on transaction-related functionality and database-driven business processes',
+      'Point-of-Sale cashier checkout and real-time inventory control',
       'Database-driven business reporting & analytics export',
-      'Multi-user permission levels and audit trail logging',
+      'Multi-tier role permissions and transaction audit logging',
     ],
     tags: ['Laravel', 'PHP', 'MySQL', 'REST APIs', 'JavaScript', 'Bootstrap'],
+  },
+  proj4: {
+    num: '04', year: '2024', catLabel: 'Fintech & VTU',
+    title: 'Billing.ng — VTU & Utility Payment Platform',
+    liveUrl: 'https://billing.ng/', codeUrl: 'https://github.com/Shuraih-Usman',
+    images: [
+      'images/proj-finance.jpg',
+      'images/proj-ecommerce.jpg',
+      'images/proj-food.jpg',
+    ],
+    desc: `Billing.ng is an automated digital VTU and utility payment platform supporting airtime, data bundles, cable TV subscriptions, electricity token purchases, JAMB/WAEC exam PINs, and digital café services through third-party API integrations.`,
+    features: [
+      'Developed features for a digital payment platform supporting airtime, data, cable TV, electricity, Exam Pin, Jamb and Digital Café Services',
+      'Integrated third-party service APIs for automated transaction processing',
+      'Implemented wallet, transaction, and payment-related backend functionality',
+      'Developed supporting mobile application functionality using React Native',
+      'Instant payment webhooks and automated service dispatching',
+      'User wallet balance management and real-time transaction ledger',
+    ],
+    tags: ['Laravel', 'PHP', 'React Native', 'MySQL', 'REST APIs', 'Payment Integration'],
+  },
+  proj5: {
+    num: '05', year: '2023', catLabel: 'Digital Media',
+    title: 'Magajin Wilbafos — Digital Publishing & Audiobook Platform',
+    liveUrl: 'https://magajinwilbafos.com.ng/', codeUrl: 'https://github.com/Shuraih-Usman',
+    images: [
+      'images/product-novel-engine.jpg',
+      'images/proj-kanban.jpg',
+      'images/proj-education.jpg',
+    ],
+    desc: `Magajin Wilbafos is a specialized web and mobile platform for digital literature and audiobook distribution. It features a standalone virtual currency system that users purchase and use to access paid audio content, integrated payment processing, wallet/currency transactions, and Firebase Cloud Messaging (FCM).`,
+    features: [
+      'Developed a web and mobile platform for digital literature and audiobook distribution',
+      'Built a standalone virtual currency system that users purchase and use to access paid audio content',
+      'Integrated payment processing, wallet/currency transactions, and access control for premium content',
+      'Implemented real-time mobile notifications using Firebase Cloud Messaging (FCM)',
+      'Cross-platform mobile application developed with React Native',
+      'Audiobook player, continuous streaming, and author publishing management',
+    ],
+    tags: ['Laravel', 'React Native', 'MySQL', 'REST APIs', 'Firebase FCM', 'PHP'],
   },
 };
 
 /* ─────────────────── LOADER ─────────────────── */
 (function initLoader() {
   const loader = $('#loader');
-  const fill   = $('#loaderFill');
-  const txt    = $('#loaderText');
-  const msgs   = ['Initializing...', 'Loading assets...', 'Almost there...', 'Welcome!'];
+  const fill = $('#loaderFill');
+  const txt = $('#loaderText');
+  const msgs = ['Initializing...', 'Loading assets...', 'Almost there...', 'Welcome!'];
   let progress = 0, msgIdx = 0;
 
   document.body.style.overflow = 'hidden';
@@ -100,7 +140,7 @@ const PROJECT_DATA = {
 
 /* ─────────────────── CUSTOM CURSOR ─────────────────── */
 (function initCursor() {
-  const cursor   = $('#cursor');
+  const cursor = $('#cursor');
   const follower = $('#cursorFollower');
   if (!cursor || !follower) return;
 
@@ -115,13 +155,13 @@ const PROJECT_DATA = {
   document.addEventListener('mousemove', e => {
     mx = e.clientX; my = e.clientY;
     cursor.style.left = mx + 'px';
-    cursor.style.top  = my + 'px';
+    cursor.style.top = my + 'px';
   });
   (function loop() {
     fx += (mx - fx) * 0.12;
     fy += (my - fy) * 0.12;
     follower.style.left = fx + 'px';
-    follower.style.top  = fy + 'px';
+    follower.style.top = fy + 'px';
     requestAnimationFrame(loop);
   })();
 
@@ -160,8 +200,8 @@ const PROJECT_DATA = {
     }
     update() {
       this.x += this.vx; this.y += this.vy;
-      if (this.x < 0 || this.x > canvas.width)  this.vx *= -1;
-      if (this.y < 0 || this.y > canvas.height)  this.vy *= -1;
+      if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+      if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
     }
     draw() {
       ctx.beginPath();
@@ -202,8 +242,8 @@ const PROJECT_DATA = {
 
 /* ─────────────────── NAVIGATION ─────────────────── */
 (function initNav() {
-  const nav      = $('#nav');
-  const toggle   = $('#navToggle');
+  const nav = $('#nav');
+  const toggle = $('#navToggle');
   const mobileMenu = $('#mobileMenu');
   const sections = $$('section[id]');
   const navLinks = $$('.nav-link');
@@ -240,7 +280,7 @@ function initTypewriter() {
   let wordIdx = 0, charIdx = 0, deleting = false;
 
   function type() {
-    const word    = words[wordIdx];
+    const word = words[wordIdx];
     const current = deleting ? word.slice(0, charIdx--) : word.slice(0, ++charIdx);
     el.textContent = current;
     if (!deleting && charIdx === word.length) { setTimeout(() => { deleting = true; type(); }, 1800); }
@@ -254,9 +294,9 @@ function initTypewriter() {
 function animateCounters() {
   $$('[data-target]').forEach(el => {
     const target = parseInt(el.dataset.target, 10);
-    const step   = target / (1800 / 16);
-    let current  = 0;
-    const timer  = setInterval(() => {
+    const step = target / (1800 / 16);
+    let current = 0;
+    const timer = setInterval(() => {
       current += step;
       if (current >= target) { current = target; clearInterval(timer); }
       el.textContent = Math.floor(current);
@@ -283,7 +323,7 @@ function initHeroTilt() {
   wrap.addEventListener('mousemove', e => {
     const rect = wrap.getBoundingClientRect();
     const rx = ((e.clientY - rect.top - rect.height / 2) / rect.height) * 8;
-    const ry = ((e.clientX - rect.left - rect.width  / 2) / rect.width)  * -8;
+    const ry = ((e.clientX - rect.left - rect.width / 2) / rect.width) * -8;
     wrap.style.transform = `perspective(700px) rotateX(${rx}deg) rotateY(${ry}deg)`;
   });
   wrap.addEventListener('mouseleave', () => {
@@ -298,7 +338,7 @@ function initOrbParallax() {
   const center = document.querySelector('.orb-center');
   if (!center) return;
   window.addEventListener('mousemove', e => {
-    const dx = (e.clientX / window.innerWidth  - 0.5) * 16;
+    const dx = (e.clientX / window.innerWidth - 0.5) * 16;
     const dy = (e.clientY / window.innerHeight - 0.5) * 16;
     center.style.transform = `translate(${dx}px, ${dy}px)`;
   });
@@ -306,10 +346,10 @@ function initOrbParallax() {
 
 /* ─────────────────── IMAGE LIGHTBOX ─────────────────── */
 function initImageLightbox() {
-  const lb      = $('#imgLightbox');
-  const lbImg   = $('#lbImg');
+  const lb = $('#imgLightbox');
+  const lbImg = $('#lbImg');
   const lbClose = $('#lbClose');
-  const lbBd    = $('#lbBackdrop');
+  const lbBd = $('#lbBackdrop');
   if (!lb) return;
 
   function openLb() {
@@ -335,10 +375,10 @@ function initImageLightbox() {
 
 /* ─────────────────── PROJECT DETAIL DRAWER ─────────────────── */
 function initProjectDrawer() {
-  const drawer  = $('#projDrawer');
-  const pdBody  = $('#pdBody');
+  const drawer = $('#projDrawer');
+  const pdBody = $('#pdBody');
   const pdClose = $('#pdClose');
-  const pdBd    = $('#pdBackdrop');
+  const pdBd = $('#pdBackdrop');
   if (!drawer) return;
 
   function openDrawer(projId) {
@@ -356,12 +396,12 @@ function initProjectDrawer() {
   }
 
   function buildDrawerHTML(p) {
-    const imgs  = p.images || [];
+    const imgs = p.images || [];
     const slides = imgs.map((src, i) =>
-      `<div class="pg-slide${i===0?' pg-active':''}" data-idx="${i}"><img src="${src}" alt="${p.title} screenshot ${i+1}" loading="${i===0?'eager':'lazy'}" onerror="this.src='images/proj-ecommerce.jpg'"/></div>`
+      `<div class="pg-slide${i === 0 ? ' pg-active' : ''}" data-idx="${i}"><img src="${src}" alt="${p.title} screenshot ${i + 1}" loading="${i === 0 ? 'eager' : 'lazy'}" onerror="this.src='images/proj-ecommerce.jpg'"/></div>`
     ).join('');
     const dots = imgs.map((_, i) =>
-      `<button class="pg-dot${i===0?' pg-dot-active':''}" data-goto="${i}" aria-label="Slide ${i+1}"></button>`
+      `<button class="pg-dot${i === 0 ? ' pg-dot-active' : ''}" data-goto="${i}" aria-label="Slide ${i + 1}"></button>`
     ).join('');
 
     return `
@@ -420,12 +460,12 @@ function initProjectDrawer() {
 
 /* ─────────────────────────────────────────────────────────── SHARED GALLERY */
 function initGallery(ctx) {
-  const track   = ctx.querySelector('#pgTrack');
+  const track = ctx.querySelector('#pgTrack');
   const prevBtn = ctx.querySelector('#pgPrev');
   const nextBtn = ctx.querySelector('#pgNext');
-  const dotsEl  = ctx.querySelector('#pgDots');
+  const dotsEl = ctx.querySelector('#pgDots');
   const counter = ctx.querySelector('#pgCounter');
-  const slides  = ctx ? [...ctx.querySelectorAll('.pg-slide')] : [];
+  const slides = ctx ? [...ctx.querySelectorAll('.pg-slide')] : [];
   if (!track || slides.length < 2) return;
 
   let current = 0;
@@ -449,7 +489,7 @@ function initGallery(ctx) {
   /* Touch/swipe support */
   let startX = 0;
   track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
-  track.addEventListener('touchend',   e => {
+  track.addEventListener('touchend', e => {
     const diff = startX - e.changedTouches[0].clientX;
     if (Math.abs(diff) > 40) goTo(diff > 0 ? current + 1 : current - 1);
   }, { passive: true });
@@ -478,14 +518,14 @@ function initSkillStagger() {
 
 /* ─────────────────── CONTACT DRAWER ─────────────────── */
 function initContactDrawer() {
-  const drawer    = $('#contactDrawer');
-  const cdBd      = $('#cdrBackdrop');
-  const cdClose   = $('#cdrClose');
-  const openBtn   = $('#contactOpenBtn');
-  const form      = $('#contactForm');
-  const status    = $('#cdrStatus');
+  const drawer = $('#contactDrawer');
+  const cdBd = $('#cdrBackdrop');
+  const cdClose = $('#cdrClose');
+  const openBtn = $('#contactOpenBtn');
+  const form = $('#contactForm');
+  const status = $('#cdrStatus');
   const submitBtn = $('#cdrSubmit');
-  const btnText   = $('#cdrBtnText');
+  const btnText = $('#cdrBtnText');
   if (!drawer) return;
 
   /* --- open / close --- */
@@ -641,10 +681,10 @@ const INDEX_PRODUCTS = {
 };
 
 function initIndexProductDrawer() {
-  const drawer  = $('#ipDrawer');
-  const body    = $('#ipdBody');
-  const closeBtn= $('#ipdClose');
-  const backdrop= $('#ipdBackdrop');
+  const drawer = $('#ipDrawer');
+  const body = $('#ipdBody');
+  const closeBtn = $('#ipdClose');
+  const backdrop = $('#ipdBackdrop');
   if (!drawer) return;
 
   function openDrawer(prod) {
@@ -676,8 +716,8 @@ function initIndexProductDrawer() {
     const starsHTML = (() => {
       const full = Math.floor(p.rating), half = p.rating % 1 >= 0.5 ? 1 : 0, empty = 5 - full - half;
       return '<i class="fa-solid fa-star"></i>'.repeat(full) +
-             (half ? '<i class="fa-solid fa-star-half-stroke"></i>' : '') +
-             '<i class="fa-regular fa-star"></i>'.repeat(empty);
+        (half ? '<i class="fa-solid fa-star-half-stroke"></i>' : '') +
+        '<i class="fa-regular fa-star"></i>'.repeat(empty);
     })();
     const badgeHTML = p.badge
       ? `<span class="shcard-badge badge-${p.badge}">${p.badgeLabel}</span>` : '';

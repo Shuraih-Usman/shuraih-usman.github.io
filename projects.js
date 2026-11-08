@@ -16,70 +16,68 @@ const ALL_PROJECTS = [
     longDesc: 'Ahioma is a feature-rich, multi-tenant SaaS platform built for restaurants, eateries, and food businesses using Node.js, Express, React, and PostgreSQL. It implements a multi-tenant architecture supporting independent business accounts, modules for restaurant operations, food catalog management, orders, customer tracking, and customizable dashboards.',
     images: ['images/proj-food.jpg', 'images/proj-analytics.jpg', 'images/proj-ecommerce.jpg'],
     features: [
-      'Multi-tenant architecture supporting independent business accounts',
-      'Restaurant operations, food management & pricing catalogs',
-      'Order processing, tracking & customer administration',
-      'Reusable dashboards & customizable business workflows',
+      'Developed a feature-rich SaaS platform for restaurants and food businesses',
+      'Implemented multi-tenant architecture supporting independent business accounts',
+      'Built modules for restaurant operations, food management, orders, customers, and business administration',
+      'Developed reusable dashboards and workflows to support different business requirements',
       'RESTful APIs with PostgreSQL database optimization',
-      'End-to-end deployment support & Git workflows',
+      'Production-ready features and end-to-end deployment support',
     ],
     tags: ['Node.js', 'Express.js', 'React.js', 'PostgreSQL', 'REST APIs', 'Tailwind CSS'],
     img: 'images/proj-food.jpg',
-    live: '#', code: '#',
+    live: 'https://ahioma.ng/', code: 'https://github.com/Shuraih-Usman',
   },
   {
     id: 2, num: '02', cat: 'fullstack', catLabel: 'EdTech SaaS', year: '2025',
-    title: 'Skolentra — School Management SaaS with AI',
-    desc: 'Multi-tenant school management SaaS with AI features, online CBT exams, timetables, and multi-currency billing (NGN, USD, INR).',
+    title: 'Skolentra — School Management SaaS with AI Features',
+    desc: 'Multi-tenant school management SaaS with AI features, online CBT examinations, CA timetables, and multi-currency billing (NGN, USD, INR).',
     longDesc: 'Skolentra is a comprehensive multi-tenant school management SaaS platform built with Laravel and PHP. It supports administrators, teachers, students, parents, staff, finance, library, registration, and examination roles. Includes AI-powered features, online CBT exams, CA timetables, term results, role-based ID cards, and multi-currency billing.',
     images: ['images/product-skolentra.jpg', 'images/proj-education.jpg', 'images/proj-analytics.jpg'],
     features: [
-      'Multi-tenant school management supporting all major administrative roles',
-      'AI-powered education tools and administrative assistance',
-      'Online CBT examinations, exam & CA timetables, and automated results',
-      'Multi-currency payment recording (NGN, USD, INR) with online/offline support',
-      'Role-based ID cards and customizable student result templates',
+      'Developed a multi-tenant school management SaaS supporting administrators, teachers, students, parents, staff, finance, library, registration, and examination roles',
+      'Implemented AI-powered features, online CBT examinations, exam/CA timetables, and term-by-term result generation',
+      'Built multi-currency support for NGN, USD, and INR, with online and offline payment recording',
+      'Developed role-based ID cards and result templates with multiple customizable designs',
       'Full RESTful API backend with MySQL query optimization',
+      'Automated student reporting, attendance logs, and fee invoicing',
     ],
-    tags: ['Laravel', 'PHP', 'Tailwind CSS', 'MySQL', 'REST APIs', 'JavaScript', 'AI'],
+    tags: ['Laravel', 'PHP', 'JavaScript', 'Tailwind CSS', 'MySQL', 'REST APIs', 'AI Integration'],
     img: 'images/product-skolentra.jpg',
-    live: '#', code: '#',
+    live: 'https://skolentra.rusma.top', code: 'https://github.com/Shuraih-Usman',
   },
   {
     id: 3, num: '03', cat: 'backend', catLabel: 'POS & ERP', year: '2024',
     title: 'OnTrack.ng — Business Management & POS Platform',
     desc: 'Business management and Point-of-Sale platform supporting business operations, sales, inventory, and database-driven business processes.',
     longDesc: 'OnTrack.ng is a robust business management and Point-of-Sale (POS) platform supporting retail and commercial business operations, sales recording, multi-category inventory, and transaction workflows. Built with Laravel and PHP to provide high-reliability API services and backend database communication.',
-    images: ['images/proj-analytics.jpg', 'images/proj-kanban.jpg', 'images/proj-finance.jpg'],
     features: [
+      'Contributed to the development of a business management and Point-of-Sale platform supporting business operations, sales, inventory, and related workflows',
+      'Developed backend functionality and API services for reliable communication between application components and the central database',
+      'Worked on transaction-related functionality and database-driven business processes',
       'Point-of-Sale (POS) cash register and sales workflow automation',
       'Inventory management, stock tracking, and supplier logs',
-      'Backend API services for reliable communication with central database',
-      'Transaction-related functionality & automated financial accounting',
-      'Database-driven business reporting & analytics export',
       'Role-based staff permissions and transaction audits',
     ],
     tags: ['Laravel', 'PHP', 'MySQL', 'REST APIs', 'JavaScript'],
     img: 'images/proj-analytics.jpg',
-    live: '#', code: '#',
+    live: 'https://ontrack.ng/', code: 'https://github.com/Shuraih-Usman',
   },
   {
     id: 4, num: '04', cat: 'mobile', catLabel: 'Fintech & VTU', year: '2024',
     title: 'Billing.ng — VTU & Utility Payment Platform',
     desc: 'Digital payment platform supporting airtime, data, electricity, cable TV, exam PINs, and digital café services with React Native app.',
     longDesc: 'Billing.ng is an automated digital VTU and utility payment platform built with Laravel, PHP, MySQL, and React Native. Supports automated transactions for airtime, data bundles, cable TV subscriptions, electricity token purchases, JAMB/WAEC exam PINs, and digital café services through third-party API integrations.',
-    images: ['images/proj-finance.jpg', 'images/proj-ecommerce.jpg', 'images/proj-food.jpg'],
     features: [
-      'Automated transaction processing for airtime, internet data, and cable TV',
-      'Electricity bill payments and instant token delivery',
-      'JAMB, WAEC, and NECO exam PIN generation and vending',
+      'Developed features for a digital payment platform supporting airtime, data, cable TV, electricity, Exam Pin, Jamb and Digital Café Services',
+      'Integrated third-party service APIs for automated transaction processing',
+      'Implemented wallet, transaction, and payment-related backend functionality',
+      'Developed supporting mobile application functionality using React Native',
+      'Secure payment gateway webhooks and instant automated value delivery',
       'Digital wallet, transaction tracking, and payment gateway backend',
-      'Third-party service API integration with automated webhooks',
-      'Cross-platform mobile application developed with React Native',
     ],
     tags: ['Laravel', 'PHP', 'React Native', 'MySQL', 'REST APIs', 'Payment Gateways'],
     img: 'images/proj-finance.jpg',
-    live: '#', code: '#',
+    live: 'https://billing.ng/', code: 'https://github.com/Shuraih-Usman',
   },
   {
     id: 5, num: '05', cat: 'mobile', catLabel: 'Digital Media', year: '2023',
@@ -88,16 +86,16 @@ const ALL_PROJECTS = [
     longDesc: 'Magajin Wilbafos is a specialized web and mobile platform for digital literature, eBooks, and audiobook distribution. It features a standalone virtual currency system that users purchase and spend to unlock premium chapters and audio content, complete with Firebase Cloud Messaging (FCM) push notifications.',
     images: ['images/product-novel-engine.jpg', 'images/proj-kanban.jpg', 'images/proj-education.jpg'],
     features: [
-      'Digital literature and audiobook streaming and distribution',
-      'Standalone virtual currency & wallet system for in-app purchases',
-      'Integrated payment processing and access control for premium audio',
-      'Real-time mobile push notifications via Firebase Cloud Messaging (FCM)',
-      'Chapter bookmarking, reading progress, and audio playback state',
+      'Developed a web and mobile platform for digital literature and audiobook distribution',
+      'Built a standalone virtual currency system that users purchase and use to access paid audio content',
+      'Integrated payment processing, wallet/currency transactions, and access control for premium content',
+      'Implemented real-time mobile notifications using Firebase Cloud Messaging (FCM)',
+      'Cross-platform mobile application developed with React Native',
       'Author publishing portal with royalty and sales analytics',
     ],
     tags: ['Laravel', 'PHP', 'React Native', 'MySQL', 'REST APIs', 'Firebase FCM'],
     img: 'images/product-novel-engine.jpg',
-    live: '#', code: '#',
+    live: 'https://magajinwilbafos.com.ng/', code: 'https://github.com/Shuraih-Usman',
   },
   {
     id: 6, num: '06', cat: 'fullstack', catLabel: 'Publishing CMS', year: '2024',
@@ -115,7 +113,7 @@ const ALL_PROJECTS = [
     ],
     tags: ['PHP', 'MySQL', 'Bootstrap', 'AJAX', 'jQuery'],
     img: 'images/product-novel-engine.jpg',
-    live: '#', code: '#',
+    live: 'shop.html', code: 'https://github.com/Shuraih-Usman',
   },
 ];
 
@@ -154,14 +152,14 @@ function buildCard(proj, delay) {
         decoding="async"
         onerror="this.src='images/proj-analytics.jpg'"
       />
-      <div class="pcard-overlay" aria-hidden="true">
-        <a href="${proj.live}" class="pcard-live-btn" target="_blank" rel="noopener" tabindex="-1">
+      <div class="pcard-overlay">
+        <a href="${proj.live}" class="pcard-live-btn" target="_blank" rel="noopener" title="Live Demo" aria-label="Live Demo for ${proj.title}">
           <i class="fa-solid fa-arrow-up-right-from-square"></i> 
         </a>
-        <button class="pcard-detail-btn" data-proj-id="${proj.id}" tabindex="-1">
+        <button class="pcard-detail-btn" data-proj-id="${proj.id}" title="View Details" aria-label="View Details for ${proj.title}">
           <i class="fa-solid fa-eye"></i> 
         </button>
-        <a href="${proj.code}" class="pcard-code-btn" target="_blank" rel="noopener" tabindex="-1">
+        <a href="${proj.code}" class="pcard-code-btn" target="_blank" rel="noopener" title="Source Code" aria-label="Source Code for ${proj.title}">
           <i class="fa-brands fa-github"></i>
         </a>
       </div>
@@ -448,4 +446,15 @@ function initGallery(ctx) {
 }
 
 /* ─────────────────── INIT ─────────────────── */
+(function updateFilterCounts() {
+  const allEl = $('#countAll');
+  const fullstackEl = $('#countFullstack');
+  const mobileEl = $('#countMobile');
+  const backendEl = $('#countBackend');
+
+  if (allEl) allEl.textContent = ALL_PROJECTS.length;
+  if (fullstackEl) fullstackEl.textContent = ALL_PROJECTS.filter(p => p.cat === 'fullstack').length;
+  if (mobileEl) mobileEl.textContent = ALL_PROJECTS.filter(p => p.cat === 'mobile').length;
+  if (backendEl) backendEl.textContent = ALL_PROJECTS.filter(p => p.cat === 'backend').length;
+})();
 loadMore();
