@@ -29,7 +29,27 @@ const PROJECT_DATA = {
     tags: ['Node.js', 'Express.js', 'React.js', 'PostgreSQL', 'RESTful APIs', 'JWT', 'Tailwind CSS'],
   },
   proj2: {
-    num: '02', year: '2025', catLabel: 'EdTech SaaS',
+    num: '02', year: '2025', catLabel: 'Healthcare & EMR',
+    title: 'Heather EMR — Healthcare Management & AI Health Platform',
+    liveUrl: 'https://heather-ai.com.ng/', codeUrl: 'https://github.com/Shuraih-Usman',
+    images: [
+      'images/proj-healthcare.jpg',
+      'images/proj-analytics.jpg',
+      'images/proj-finance.jpg',
+    ],
+    desc: `Heather EMR is an offline-first Electronic Medical Record (EMR) system and AI health platform built for clinics and hospitals in environments where internet and power reliability cannot be assumed. Contributed across backend API services, web frontend, and cross-platform React Native mobile application across both v1 and v2.`,
+    features: [
+      'Engineered backend RESTful APIs with Node.js, Express, TypeScript, and MongoDB/SQLite',
+      'Built and refined responsive web frontend interfaces using React, Vite, and Tailwind CSS',
+      'Developed mobile application features for both v1 and v2 using React Native & Expo',
+      'Offline-first local clinic server architecture with automated background cloud synchronization',
+      'Clinical consultation workflows: patient registration, vitals, diagnosis, and e-prescriptions',
+      'Integrated AI-powered health assistant and secure role-based access control (RBAC)',
+    ],
+    tags: ['React Native', 'Node.js', 'Express.js', 'TypeScript', 'React.js', 'MongoDB', 'SQLite', 'Healthcare'],
+  },
+  proj3: {
+    num: '03', year: '2025', catLabel: 'EdTech SaaS',
     title: 'Skolentra — School Management SaaS with AI Features',
     liveUrl: 'https://skolentra.rusma.top', codeUrl: 'https://github.com/Shuraih-Usman',
     images: [
@@ -48,8 +68,8 @@ const PROJECT_DATA = {
     ],
     tags: ['Laravel', 'PHP', 'JavaScript', 'Tailwind CSS', 'MySQL', 'REST APIs', 'AI Integration'],
   },
-  proj3: {
-    num: '03', year: '2024', catLabel: 'POS & ERP',
+  proj4: {
+    num: '04', year: '2024', catLabel: 'POS & ERP',
     title: 'OnTrack.ng — Business Management & POS Platform',
     liveUrl: 'https://ontrack.ng/', codeUrl: 'https://github.com/Shuraih-Usman',
     images: [
@@ -68,8 +88,8 @@ const PROJECT_DATA = {
     ],
     tags: ['Laravel', 'PHP', 'MySQL', 'REST APIs', 'JavaScript', 'Bootstrap'],
   },
-  proj4: {
-    num: '04', year: '2024', catLabel: 'Fintech & VTU',
+  proj5: {
+    num: '05', year: '2024', catLabel: 'Fintech & VTU',
     title: 'Billing.ng — VTU & Utility Payment Platform',
     liveUrl: 'https://billing.ng/', codeUrl: 'https://github.com/Shuraih-Usman',
     images: [
@@ -88,8 +108,8 @@ const PROJECT_DATA = {
     ],
     tags: ['Laravel', 'PHP', 'React Native', 'MySQL', 'REST APIs', 'Payment Integration'],
   },
-  proj5: {
-    num: '05', year: '2023', catLabel: 'Digital Media',
+  proj6: {
+    num: '06', year: '2023', catLabel: 'Digital Media',
     title: 'Magajin Wilbafos — Digital Publishing & Audiobook Platform',
     liveUrl: 'https://magajinwilbafos.com.ng/', codeUrl: 'https://github.com/Shuraih-Usman',
     images: [

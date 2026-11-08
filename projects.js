@@ -28,7 +28,25 @@ const ALL_PROJECTS = [
     live: 'https://ahioma.ng/', code: 'https://github.com/Shuraih-Usman',
   },
   {
-    id: 2, num: '02', cat: 'fullstack', catLabel: 'EdTech SaaS', year: '2025',
+    id: 2, num: '02', cat: 'fullstack', cats: ['fullstack', 'mobile'], catLabel: 'Healthcare & EMR', year: '2025',
+    title: 'Heather EMR — Healthcare Management & AI Health Platform',
+    desc: 'Offline-first Electronic Medical Record system and AI health platform. Contributed across backend API services, web frontend, and React Native mobile app (v1 & v2).',
+    longDesc: 'Heather EMR is an offline-first Electronic Medical Record (EMR) and health platform engineered for Nigerian hospitals and clinics where reliable internet and power cannot be assumed. Features a local LAN server storing clinical records in SQLite/MongoDB with automated cloud sync, clinical consultation workflows, e-prescriptions, pharmacy inventory, audit logging, and billing. Contributed across the Express/Node.js backend, React web portal, and cross-platform React Native mobile app (v1 & v2) with an AI-powered health assistant.',
+    images: ['images/proj-healthcare.jpg', 'images/proj-analytics.jpg', 'images/proj-finance.jpg'],
+    features: [
+      'Engineered backend RESTful APIs with Node.js, Express, TypeScript, and MongoDB/SQLite',
+      'Built and refined responsive web frontend interfaces using React, Vite, and Tailwind CSS',
+      'Developed mobile application features for both v1 and v2 using React Native & Expo',
+      'Offline-first local clinic server architecture with automated background cloud synchronization',
+      'Clinical consultation workflows: patient registration, vitals, diagnosis, and e-prescriptions',
+      'Integrated AI-powered health assistant and secure role-based access control (RBAC)',
+    ],
+    tags: ['React Native', 'Node.js', 'Express.js', 'TypeScript', 'React.js', 'MongoDB', 'SQLite', 'Healthcare'],
+    img: 'images/proj-healthcare.jpg',
+    live: 'https://heather-ai.com.ng/', code: 'https://github.com/Shuraih-Usman',
+  },
+  {
+    id: 3, num: '03', cat: 'fullstack', catLabel: 'EdTech SaaS', year: '2025',
     title: 'Skolentra — School Management SaaS with AI Features',
     desc: 'Multi-tenant school management SaaS with AI features, online CBT examinations, CA timetables, and multi-currency billing (NGN, USD, INR).',
     longDesc: 'Skolentra is a comprehensive multi-tenant school management SaaS platform built with Laravel and PHP. It supports administrators, teachers, students, parents, staff, finance, library, registration, and examination roles. Includes AI-powered features, online CBT exams, CA timetables, term results, role-based ID cards, and multi-currency billing.',
@@ -46,7 +64,7 @@ const ALL_PROJECTS = [
     live: 'https://skolentra.rusma.top', code: 'https://github.com/Shuraih-Usman',
   },
   {
-    id: 3, num: '03', cat: 'backend', catLabel: 'POS & ERP', year: '2024',
+    id: 4, num: '04', cat: 'backend', catLabel: 'POS & ERP', year: '2024',
     title: 'OnTrack.ng — Business Management & POS Platform',
     desc: 'Business management and Point-of-Sale platform supporting business operations, sales, inventory, and database-driven business processes.',
     longDesc: 'OnTrack.ng is a robust business management and Point-of-Sale (POS) platform supporting retail and commercial business operations, sales recording, multi-category inventory, and transaction workflows. Built with Laravel and PHP to provide high-reliability API services and backend database communication.',
@@ -63,7 +81,7 @@ const ALL_PROJECTS = [
     live: 'https://ontrack.ng/', code: 'https://github.com/Shuraih-Usman',
   },
   {
-    id: 4, num: '04', cat: 'mobile', catLabel: 'Fintech & VTU', year: '2024',
+    id: 5, num: '05', cat: 'mobile', catLabel: 'Fintech & VTU', year: '2024',
     title: 'Billing.ng — VTU & Utility Payment Platform',
     desc: 'Digital payment platform supporting airtime, data, electricity, cable TV, exam PINs, and digital café services with React Native app.',
     longDesc: 'Billing.ng is an automated digital VTU and utility payment platform built with Laravel, PHP, MySQL, and React Native. Supports automated transactions for airtime, data bundles, cable TV subscriptions, electricity token purchases, JAMB/WAEC exam PINs, and digital café services through third-party API integrations.',
@@ -80,7 +98,7 @@ const ALL_PROJECTS = [
     live: 'https://billing.ng/', code: 'https://github.com/Shuraih-Usman',
   },
   {
-    id: 5, num: '05', cat: 'mobile', catLabel: 'Digital Media', year: '2023',
+    id: 6, num: '06', cat: 'mobile', catLabel: 'Digital Media', year: '2023',
     title: 'Magajin Wilbafos — Publishing & Audiobook Platform',
     desc: 'Web and mobile digital literature and audiobook distribution platform featuring virtual coin wallet and push notifications.',
     longDesc: 'Magajin Wilbafos is a specialized web and mobile platform for digital literature, eBooks, and audiobook distribution. It features a standalone virtual currency system that users purchase and spend to unlock premium chapters and audio content, complete with Firebase Cloud Messaging (FCM) push notifications.',
@@ -98,7 +116,7 @@ const ALL_PROJECTS = [
     live: 'https://magajinwilbafos.com.ng/', code: 'https://github.com/Shuraih-Usman',
   },
   {
-    id: 6, num: '06', cat: 'fullstack', catLabel: 'Publishing CMS', year: '2024',
+    id: 7, num: '07', cat: 'fullstack', catLabel: 'Publishing CMS', year: '2024',
     title: 'Novel Engine V2 — PHP Fiction Reading Platform',
     desc: 'Multipurpose PHP novel and fiction platform with multi-genre catalog, chapter reader with dark mode, and admin control.',
     longDesc: 'Novel Engine V2 is a versatile web publishing platform designed for fiction authors and novel communities. Features an intuitive reading experience with custom typography and dark mode, author submission pipelines, chapter-based monetization, and SEO optimization.',
@@ -309,7 +327,9 @@ observer.observe(sentinel);
    ═══════════════════════════════════════════════════════════ */
 function applyFilter(cat) {
   activeFilter = cat;
-  filtered = cat === 'all' ? [...ALL_PROJECTS] : ALL_PROJECTS.filter(p => p.cat === cat);
+  filtered = cat === 'all'
+    ? [...ALL_PROJECTS]
+    : ALL_PROJECTS.filter(p => p.cat === cat || (Array.isArray(p.cats) && p.cats.includes(cat)));
 
   page = 0; allLoaded = false; loading = false;
   grid.innerHTML = '';
@@ -453,8 +473,8 @@ function initGallery(ctx) {
   const backendEl = $('#countBackend');
 
   if (allEl) allEl.textContent = ALL_PROJECTS.length;
-  if (fullstackEl) fullstackEl.textContent = ALL_PROJECTS.filter(p => p.cat === 'fullstack').length;
-  if (mobileEl) mobileEl.textContent = ALL_PROJECTS.filter(p => p.cat === 'mobile').length;
-  if (backendEl) backendEl.textContent = ALL_PROJECTS.filter(p => p.cat === 'backend').length;
+  if (fullstackEl) fullstackEl.textContent = ALL_PROJECTS.filter(p => p.cat === 'fullstack' || (p.cats && p.cats.includes('fullstack'))).length;
+  if (mobileEl) mobileEl.textContent = ALL_PROJECTS.filter(p => p.cat === 'mobile' || (p.cats && p.cats.includes('mobile'))).length;
+  if (backendEl) backendEl.textContent = ALL_PROJECTS.filter(p => p.cat === 'backend' || (p.cats && p.cats.includes('backend'))).length;
 })();
 loadMore();
